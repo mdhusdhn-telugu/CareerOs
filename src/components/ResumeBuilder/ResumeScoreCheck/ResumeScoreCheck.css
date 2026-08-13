@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap');
+
+.score-check-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px;
+  font-family: 'Lato', sans-serif;
+  background-color: #111827; /* Dark charcoal background */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #f8fafc;
+}
+
+.score-check-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  width: 100%;
+  max-width: 1200px;
+  background-color: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.rsc-input-area h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+}
+
+.rsc-input-area p {
+  color: #94a3b8;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.rsc-form-group {
+  margin-bottom: 25px;
+}
+
+.rsc-form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #cbd5e1;
+}
+
+.rsc-form-group select,
+.rsc-form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  box-sizing: border-box;
+  color: #f8fafc;
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.rsc-form-group textarea {
+  min-height: 200px;
+  resize: vertical;
+}
+
+.rsc-form-group select:focus,
+.rsc-form-group textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.4);
+}
+
+.rsc-submit-btn {
+  width: 100%;
+  padding: 15px 30px;
+  border-radius: 8px;
+  background-color: #10B981;
+  color: #ffffff;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.rsc-submit-btn:hover:not(:disabled) {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+.rsc-submit-btn:disabled {
+  background-color: #4a5568;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.rsc-results-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 40px;
+  min-height: 500px;
+  text-align: center;
+}
+
+.rsc-results-area .placeholder-text {
+  color: #94a3b8;
+}
+
+.rsc-score-display {
+  font-size: 6rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: #10B981;
+}
+
+.rsc-score-label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.rsc-keywords h3 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.rsc-keywords-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.rsc-keyword-pill {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #a7f3d0;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.rsc-error-message {
+  color: #fecdd3;
+  background-color: rgba(225, 59, 90, 0.2);
+  border: 1px solid rgba(225, 59, 90, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+@media (max-width: 992px) {
+  .score-check-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- AI Feature Styling --- */
+
+/* The purple gradient button */
+.ai-generate-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 10px;
+  margin-top: -8px; /* Pulls it closer to the input field above */
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between text and icon if you add one */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.ai-generate-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.5);
+  filter: brightness(1.1);
+}
+
+.ai-generate-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  background: #4b5563; /* Gray out when loading */
+}
+
+/* Smaller variant for inside the Experience/Project cards */
+.ai-generate-btn.small {
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background: rgba(99, 102, 241, 0.1); /* Transparent purple */
+  border: 1px solid rgba(168, 85, 247, 0.5);
+  color: #a5b4fc;
+  box-shadow: none;
+}
+
+.ai-generate-btn.small:hover:not(:disabled) {
+  background: rgba(99, 102, 241, 0.2);
+  color: white;
+  border-color: #a855f7;
+}
+
+/* Ensure the Section Header Row aligns nicely */
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}

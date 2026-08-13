@@ -1,0 +1,144 @@
+/* src/components/PrivacyPolicy.module.css */
+
+/* Reuse global vars to match About/Guides */
+.policyPageContainer {
+  min-height: 100vh;
+  /* Navbar spacing */
+  padding: 8rem 2rem 4rem 2rem; 
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* The Glass Card Container */
+.policyCard {
+  background: rgba(15, 15, 15, 0.6); /* Semi-transparent black */
+  border: 1px solid #27272a;       /* Subtle dark border */
+  border-radius: 24px;             /* Smooth corners */
+  max-width: 900px;
+  width: 100%;
+  padding: 4rem;
+  backdrop-filter: blur(12px);     /* Glass effect */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Deep shadow */
+}
+
+/* Typography - Main Title */
+.policyTitle {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  /* Silver Gradient Text */
+  background: linear-gradient(to bottom, #fff 40%, #888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.policyDate {
+  color: #71717a; /* Dark Grey */
+  margin-bottom: 3rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Section Headings */
+.policyHeading {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #27272a; /* Subtle separator */
+  font-weight: 600;
+}
+
+/* Body Text */
+.policyText {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #d4d4d8; /* Light Silver */
+}
+
+.policyText p {
+  margin-bottom: 1.5rem;
+}
+
+/* Links */
+.policyLink {
+  color: #a855f7; /* CodeAstra Purple */
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  border-bottom: 1px dotted rgba(168, 85, 247, 0.5);
+}
+
+.policyLink:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Lists */
+.policyList {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.policyList li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #a1a1aa;
+}
+
+/* Custom Bullet Points */
+.policyList li::before {
+  content: "•";
+  color: #a855f7; /* Purple bullet */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.policyList strong {
+  color: #fff;
+}
+
+/* Address Box */
+.policyAddress {
+  font-style: normal;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03); /* Very subtle fill */
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  line-height: 1.6;
+  color: #d4d4d8;
+}
+
+/* Footer Section */
+.policyFooter {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #27272a;
+}
+
+.policyDisclaimer {
+  font-size: 0.9rem;
+  color: #52525b; /* Very dark grey for disclaimer */
+  font-style: italic;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .policyCard {
+    padding: 2rem;
+  }
+  .policyTitle {
+    font-size: 2.5rem;
+  }
+}

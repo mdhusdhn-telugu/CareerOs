@@ -1,0 +1,129 @@
+/* src/components/Guides/GuidePost.css */
+
+.guide-post-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 2rem 6rem 2rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+.back-link {
+  color: #a1a1aa;
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 3rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.back-link:hover {
+  color: #fff;
+  transform: translateX(-5px);
+}
+
+/* Header Styles */
+.guide-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 2rem;
+}
+
+.guide-tag {
+  color: #a855f7; /* Purple accent */
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.guide-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  /* Silver gradient from homepage */
+  background: linear-gradient(to bottom, #fff 40%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.guide-meta-info {
+  color: #71717a;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.dot { margin: 0 12px; color: #3f3f46; }
+
+/* Article Body Styles */
+.guide-body {
+  color: #d4d4d8; /* Light grey text */
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-family: 'Inter', sans-serif;
+}
+
+.guide-body h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.guide-body h3 {
+  color: #e4e4e7;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.guide-body p {
+  margin-bottom: 1.5rem;
+}
+
+.guide-body ul, .guide-body ol {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.guide-body li {
+  margin-bottom: 0.8rem;
+  color: #a1a1aa;
+}
+
+.guide-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Code Snippet Styles */
+.guide-body pre {
+  background: #111;
+  border: 1px solid #27272a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.guide-body code {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  color: #a855f7; /* Purple code text */
+  font-size: 0.95rem;
+}
+
+.guide-body pre code {
+  color: #e4e4e7; /* White code block text */
+  background: none;
+  padding: 0;
+}

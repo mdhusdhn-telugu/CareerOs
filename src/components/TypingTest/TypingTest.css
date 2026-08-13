@@ -1,0 +1,345 @@
+/* src/components/TypingTest/TypingTest.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --bg-deep: #030303;
+  --bg-card: #0a0a0a;
+  --border-subtle: #27272a;
+  --text-white: #ffffff;
+  --text-grey: #a1a1aa;
+  --accent-blue: #3b82f6; /* Optional, mostly using monochrome */
+  --correct-color: #e4e4e7;
+  --incorrect-color: #ef4444;
+  --dim-color: #52525b;
+}
+
+/* --- PAGE WRAPPER --- */
+.typing-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-deep);
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+}
+
+.typing-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- HEADER --- */
+.typing-header { text-align: center; margin-bottom: 2.5rem; }
+.typing-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to bottom, #fff 40%, #666 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.highlight-text { color: #fff; opacity: 0.5; font-weight: 300; }
+.typing-header p { color: var(--text-grey); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+
+/* --- TABS --- */
+.level-tabs {
+  display: flex;
+  background: var(--bg-card);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+  gap: 8px;
+}
+
+.level-btn {
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--text-grey);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.level-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+.level-btn.active { background: #fff; color: #000; box-shadow: 0 4px 12px rgba(255,255,255,0.2); }
+
+/* --- CARD --- */
+.typing-card {
+  width: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+}
+
+/* --- HUD BAR --- */
+.hud-bar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hud-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hud-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-grey);
+  font-weight: 700;
+}
+
+.hud-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-value small { font-size: 0.8rem; opacity: 0.6; }
+.hud-group.record .hud-value { color: #fbbf24; } /* Gold color for Best */
+/* --- TERMINAL AREA --- */
+.terminal-interface {
+  position: relative;
+  background: #050505;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 2rem;
+  min-height: 200px;
+  cursor: text;
+  transition: border-color 0.2s;
+}
+
+.terminal-interface:focus-within {
+  border-color: #52525b; /* Highlight border when focused */
+}
+
+.text-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--dim-color);
+  user-select: none;
+  transition: opacity 0.3s;
+}
+
+/* Dim the text when not focused, but keep it readable */
+.terminal-interface.blurred-state .text-display {
+  opacity: 0.5; 
+}
+
+.terminal-interface.active-state .text-display {
+  opacity: 1;
+}
+
+/* Character Styling */
+.char { transition: color 0.1s; }
+.char.correct { color: var(--correct-color); }
+.char.incorrect { color: var(--incorrect-color); background: rgba(239, 68, 68, 0.1); border-radius: 2px; }
+.char.current { border-left: 2px solid #fff; animation: blink 1s infinite; margin-left: -2px; }
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Input Handling */
+.hidden-input {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0;
+  cursor: default;
+  resize: none;
+}
+
+/* OVERLAY - NOW TRANSPARENT & CLICKABLE */
+.start-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* Removed background and blur so text is visible */
+  background: transparent; 
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  pointer-events: none; /* Allows click to pass through to textarea */
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8); /* Make text pop over the dimmed code */
+}
+/* --- RESULTS SCREEN --- */
+.results-interface {
+  text-align: center;
+  padding: 1rem 0;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.results-header { margin-bottom: 2rem; }
+.results-header h2 { font-size: 2rem; margin: 0 0 0.5rem 0; }
+.date-stamp { color: var(--text-grey); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.result-box {
+  background: #111;
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-box.primary {
+  border-color: #fff;
+  background: #1a1a1a;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.res-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-grey); margin-bottom: 8px; }
+.res-val { font-size: 3rem; font-weight: 800; line-height: 1; color: #fff; }
+.res-unit { font-size: 1rem; color: var(--text-grey); font-weight: 600; margin-top: 4px; }
+
+.new-record-banner {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid #10b981;
+  color: #10b981;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.retry-btn {
+  padding: 14px 40px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+
+.retry-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hud-bar { flex-wrap: wrap; gap: 20px; }
+  .results-grid { grid-template-columns: 1fr; }
+  .typing-header h1 { font-size: 2rem; }
+  .text-display { font-size: 1rem; }
+}
+
+/* --- HISTORY SECTION --- */
+.history-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.history-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-grey);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.history-icon {
+  color: #3b82f6; /* Accent blue */
+}
+
+.history-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.history-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.history-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #52525b;
+}
+
+.history-item:first-child {
+  /* Highlight the most recent one slightly */
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.h-score {
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.h-unit {
+  color: var(--text-grey);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.no-history {
+  color: #52525b;
+  font-size: 0.9rem;
+  font-style: italic;
+}

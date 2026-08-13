@@ -1,0 +1,272 @@
+[
+  {
+    "id": "nv01",
+    "question": "Which figure completes the pattern of a square rotating 45 degrees clockwise in each step?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 1,
+    "explanation": "The pattern shows a consistent 45-degree clockwise rotation.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv02",
+    "question": "Find the odd one out: A square, a circle, a rectangle, a triangle.",
+    "options": ["Square", "Circle", "Rectangle", "Triangle"],
+    "answerIndex": 1,
+    "explanation": "A circle is the only figure made of a curved line, while the others are polygons made of straight lines.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv03",
+    "question": "Which figure is the mirror image of the given figure?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 3,
+    "explanation": "A mirror image is a lateral inversion, where left becomes right and right becomes left.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv04",
+    "question": "How many triangles are there in a star shape formed by two overlapping equilateral triangles?",
+    "options": ["6", "7", "8", "10"],
+    "answerIndex": 2,
+    "explanation": "There are 6 small triangles forming the points and 2 large triangles in the center, making a total of 8.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv05",
+    "question": "Select a figure from the options which will continue the series established by the five problem figures.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 0,
+    "explanation": "The pattern involves a specific sequence of adding and removing lines in a clockwise direction.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv06",
+    "question": "Which option fits into the missing space in the matrix of shapes where rows follow a pattern of increasing sides?",
+    "options": ["Triangle", "Square", "Pentagon", "Circle"],
+    "answerIndex": 2,
+    "explanation": "The rows show shapes with 3, 4, 5 sides, so the missing is pentagon.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv07",
+    "question": "Find the odd one out among figures: All shaded except one unshaded.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 3,
+    "explanation": "Figure D is the only one without shading.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv08",
+    "question": "Which figure completes the analogy: Circle is to sphere as square is to?",
+    "options": ["Cube", "Rectangle", "Pyramid", "Cylinder"],
+    "answerIndex": 0,
+    "explanation": "A circle is a 2D shape, its 3D counterpart is a sphere; similarly, square to cube.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv09",
+    "question": "Count the number of squares in a 3x3 grid.",
+    "options": ["9", "10", "14", "18"],
+    "answerIndex": 2,
+    "explanation": "There are 9 small squares, 4 medium (2x2), and 1 large (3x3), total 14.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv10",
+    "question": "Which option shows the correct water image of the given figure?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 1,
+    "explanation": "Water image is a vertical inversion.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv11",
+    "question": "Find the figure that is embedded in the given complex figure.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 0,
+    "explanation": "Figure A can be traced within the complex shape without lifting the pencil.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv12",
+    "question": "Which figure comes next in the pattern where shapes are alternating and rotating 90 degrees?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 2,
+    "explanation": "The pattern alternates between circle and square, with 90-degree rotation each time.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv13",
+    "question": "Find the odd one out: Figures with even number of sides except one.",
+    "options": ["Triangle", "Pentagon", "Heptagon", "Square"],
+    "answerIndex": 3,
+    "explanation": "Square has even sides (4), others have odd (3,5,7).",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv14",
+    "question": "How many circles are there in a figure with three intersecting circles?",
+    "options": ["3", "7", "1", "4"],
+    "answerIndex": 0,
+    "explanation": "There are three distinct circles.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv15",
+    "question": "Which option completes the series where lines are added progressively?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 3,
+    "explanation": "Each step adds one more line in a specific pattern.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv16",
+    "question": "Identify the figure that does not belong: All symmetric except one.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 1,
+    "explanation": "Figure B lacks symmetry.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv17",
+    "question": "What is the number of rectangles in a 2x2 grid?",
+    "options": ["4", "6", "9", "8"],
+    "answerIndex": 2,
+    "explanation": "There are 4 small, 4 horizontal/vertical 1x2, and 1 large, total 9.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv18",
+    "question": "Which figure is the rotation of the given figure by 180 degrees?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 0,
+    "explanation": "180-degree rotation inverts the figure upside down.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv19",
+    "question": "Find the missing piece in the puzzle where patterns match across rows.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 2,
+    "explanation": "The third row must follow the same overlay pattern as the first two.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv20",
+    "question": "How many lines of symmetry does a regular hexagon have?",
+    "options": ["3", "4", "6", "8"],
+    "answerIndex": 2,
+    "explanation": "A regular hexagon has 6 lines of symmetry.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv21",
+    "question": "Which option shows the correct unfolding of a cube net?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 1,
+    "explanation": "The net must form a cube without overlapping faces.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv22",
+    "question": "Find the odd one out: Figures that can be divided into two identical halves except one.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 3,
+    "explanation": "Figure D cannot be divided symmetrically.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv23",
+    "question": "Which figure completes the pattern where shading alternates?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 0,
+    "explanation": "The shading moves from left to right alternately.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv24",
+    "question": "Count the number of intersecting lines in a figure with four lines crossing at one point.",
+    "options": ["4", "6", "1", "0"],
+    "answerIndex": 1,
+    "explanation": "Four lines intersecting at one point create 6 intersection segments, but the question is for pairs: C(4,2)=6 intersections, but since all at one point, it's 1 point, but assuming pairs.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv25",
+    "question": "Which option is the mirror image across a diagonal line?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 3,
+    "explanation": "Diagonal mirror flips across the diagonal.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv26",
+    "question": "Find the figure that continues the series of growing shapes.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 1,
+    "explanation": "Each step adds one more layer to the shape.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv27",
+    "question": "How many pentagons in a figure composed of multiple polygons?",
+    "options": ["2", "3", "4", "5"],
+    "answerIndex": 2,
+    "explanation": "Counting distinct pentagons formed.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "nv28",
+    "question": "Which figure is identical to the given one after rotation?",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 0,
+    "explanation": "Figure A matches after 90-degree rotation.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "nv29",
+    "question": "Find the odd one out based on color inversion.",
+    "options": ["A", "B", "C", "D"],
+    "answerIndex": 2,
+    "explanation": "Figure C does not follow the inversion pattern.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "nv30",
+    "question": "Which option completes the analogy: Arrow pointing up is to down as left is to?",
+    "options": ["Right", "Up", "Down", "Left"],
+    "answerIndex": 0,
+    "explanation": "Opposite directions: up to down, left to right.",
+    "category": "nonverbalreasoning",
+    "difficulty": "Easy"
+  }
+]

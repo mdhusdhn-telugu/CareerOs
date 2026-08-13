@@ -1,0 +1,120 @@
+/* Font imports needed for the logo */
+@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&family=Seaweed+Script&display=swap');
+
+/* ALL root variables from your original index.css for perfect consistency */
+:root {
+  --bg-primary: #080808;
+  --bg-secondary: #0F0F0F;
+  --bg-inset: #000000;
+  --text-primary: #F0F0F0;
+  --text-secondary: #B0B0B0;
+  --border-primary: rgba(255, 255, 255, 0.15);
+  --border-secondary: rgba(255, 255, 255, 0.08);
+  --accent-gradient: linear-gradient(135deg, #4A6AFF, #FF4081);
+  --accent-1: #4A6AFF;
+  --accent-2: #FF4081;
+}
+
+/* Global animation for the navbar */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* In Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeIn 1.2s ease-in-out;
+
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.05); */
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.rocket-icon {
+  width: 32px;
+  height: 32px;
+  color: #ab47bc;
+  margin-right: 10px;
+  transition: transform 0.4s ease, color 0.4s ease;
+  filter: drop-shadow(0 0 8px rgba(171, 71, 188, 0.7));
+}
+
+.logo-link:hover .rocket-icon {
+  transform: translateY(-4px) rotate(-15deg);
+  color: #6a1b9a;
+}
+
+.code-logo, .astra-logo {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  -webkit-text-stroke: 0.7px rgba(255, 255, 255, 0.3);
+  transition: all 0.4s ease;
+}
+
+.logo-link:hover .code-logo,
+.logo-link:hover .astra-logo {
+  transform: scale(1.05);
+}
+
+.code-logo {
+  font-family: 'WindSong', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 8px;
+  background: linear-gradient(45deg, #42a5f5, #ab47bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.astra-logo {
+  font-family: 'Seaweed Script', sans-serif;
+  font-size: 26px;
+  background: linear-gradient(45deg, #ff7043, #f06292);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === CTA BUTTON STYLES === */
+.cta-button {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  background: var(--accent-gradient);
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button.premium {
+  background: linear-gradient(135deg, #4A6AFF, #FF4081);
+}
+
+.cta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(74, 106, 255, 0.5);
+}
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 1024px) {
+  .navbar { padding: 1.5rem 3rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 1rem 2rem; }
+}

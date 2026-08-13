@@ -1,0 +1,272 @@
+[
+  {
+    "id": "ar01",
+    "question": "The sum of ages of 5 children born at the intervals of 3 years each is 50 years. What is the age of the youngest child?",
+    "options": ["4 years", "8 years", "10 years", "None of these"],
+    "answerIndex": 0,
+    "explanation": "Let the ages be x, x+3, x+6, x+9 and x+12. Then 5x + 30 = 50, so 5x = 20, which means x = 4.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar02",
+    "question": "A grocer has a sale of Rs. 6435, Rs. 6927, Rs. 6855, Rs. 7230 and Rs. 6562 for 5 consecutive months. How much sale must he have in the sixth month so that he gets an average sale of Rs. 6500?",
+    "options": ["Rs. 4991", "Rs. 5991", "Rs. 6001", "Rs. 6991"],
+    "answerIndex": 0,
+    "explanation": "Total sale for 5 months = 34009. Required total sale for 6 months = 6500 * 6 = 39000. Sale in 6th month = 39000 - 34009 = 4991.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar03",
+    "question": "A fruit seller had some apples. He sells 40% apples and still has 420 apples. Originally, he had:",
+    "options": ["588 apples", "600 apples", "672 apples", "700 apples"],
+    "answerIndex": 3,
+    "explanation": "If he sells 40%, he has 60% left. So, 60% of the total apples is 420. Let the total be x. (60/100)*x = 420 => x = (420 * 100) / 60 = 700.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar04",
+    "question": "What is the value of (10101)_2 in the decimal number system?",
+    "options": ["21", "18", "25", "19"],
+    "answerIndex": 0,
+    "explanation": " (1 * 2^4) + (0 * 2^3) + (1 * 2^2) + (0 * 2^1) + (1 * 2^0) = 16 + 0 + 4 + 0 + 1 = 21.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar05",
+    "question": "The least perfect square which is divisible by each of 21, 36 and 66 is:",
+    "options": ["213444", "214344", "214434", "231444"],
+    "answerIndex": 0,
+    "explanation": "L.C.M. of 21, 36, 66 is 2772. Now 2772 = 2*2 * 3*3 * 7 * 11. To make it a perfect square, we must multiply it by 7 * 11 = 77. Required number = 2772 * 77 = 213444.",
+    "category": "arithmetic",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "ar06",
+    "question": "The sum of two numbers is 25 and their product is 144. What is the larger number?",
+    "options": ["16", "15", "13", "17"],
+    "answerIndex": 0,
+    "explanation": "Let the numbers be x and y, with x + y = 25 and xy = 144. Solving the quadratic equation t^2 - 25t + 144 = 0, discriminant = 625 - 576 = 49, roots = (25 ± 7)/2 = 16 and 9. The larger is 16.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar07",
+    "question": "A man buys a watch for Rs. 200 and sells it for Rs. 250. What is the profit percentage?",
+    "options": ["20%", "25%", "30%", "50%"],
+    "answerIndex": 1,
+    "explanation": "Profit = 250 - 200 = 50. Profit percentage = (50 / 200) * 100 = 25%.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar08",
+    "question": "What is the simple interest on Rs. 1000 at 5% per annum for 2 years?",
+    "options": ["Rs. 100", "Rs. 110", "Rs. 120", "Rs. 150"],
+    "answerIndex": 0,
+    "explanation": "Simple interest = (Principal * Rate * Time) / 100 = (1000 * 5 * 2) / 100 = 100.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar09",
+    "question": "What is the average of the first 10 natural numbers?",
+    "options": ["5", "5.5", "6", "10"],
+    "answerIndex": 1,
+    "explanation": "The first 10 natural numbers are 1 to 10. Sum = 10*11/2 = 55. Average = 55 / 10 = 5.5.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar10",
+    "question": "Convert 0.75 to a fraction in lowest terms.",
+    "options": ["1/2", "3/4", "4/3", "2/3"],
+    "answerIndex": 1,
+    "explanation": "0.75 = 75/100 = 3/4 after simplifying by dividing numerator and denominator by 25.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar11",
+    "question": "What is the LCM of 12, 18, and 30?",
+    "options": ["180", "360", "90", "120"],
+    "answerIndex": 0,
+    "explanation": "Prime factors: 12 = 2^2 * 3, 18 = 2 * 3^2, 30 = 2 * 3 * 5. LCM = 2^2 * 3^2 * 5 = 4 * 9 * 5 = 180.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar12",
+    "question": "What is the HCF of 24, 36, and 48?",
+    "options": ["6", "12", "24", "4"],
+    "answerIndex": 1,
+    "explanation": "Prime factors: 24 = 2^3 * 3, 36 = 2^2 * 3^2, 48 = 2^4 * 3. HCF = 2^2 * 3 = 4 * 3 = 12.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar13",
+    "question": "20% of 50 is:",
+    "options": ["10", "20", "5", "15"],
+    "answerIndex": 0,
+    "explanation": "20% of 50 = (20/100) * 50 = 10.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar14",
+    "question": "If 3/4 of a number is 60, what is the number?",
+    "options": ["80", "45", "90", "60"],
+    "answerIndex": 0,
+    "explanation": "Let the number be x. (3/4)x = 60 => x = 60 * (4/3) = 80.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar15",
+    "question": "What is the square root of 169?",
+    "options": ["13", "11", "12", "14"],
+    "answerIndex": 0,
+    "explanation": "13 * 13 = 169, so sqrt(169) = 13.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar16",
+    "question": "What is the cube of 5?",
+    "options": ["125", "64", "216", "343"],
+    "answerIndex": 0,
+    "explanation": "5 * 5 * 5 = 125.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar17",
+    "question": "What is 2 raised to the power of 10?",
+    "options": ["1024", "512", "2048", "1000"],
+    "answerIndex": 0,
+    "explanation": "2^10 = 1024.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar18",
+    "question": "What is the binary representation of 13 in decimal?",
+    "options": ["1101", "1011", "1110", "1001"],
+    "answerIndex": 0,
+    "explanation": "13 / 2 = 6 rem 1, 6 / 2 = 3 rem 0, 3 / 2 = 1 rem 1, 1 / 2 = 0 rem 1. Reading remainders from bottom: 1101.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar19",
+    "question": "What is the Roman numeral for 49?",
+    "options": ["XLIX", "IL", "LIX", "XXXXIX"],
+    "answerIndex": 0,
+    "explanation": "40 is XL, 9 is IX, so 49 = XLIX.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar20",
+    "question": "A train travels 60 km in 45 minutes. What is its speed in km/h?",
+    "options": ["80", "60", "90", "45"],
+    "answerIndex": 0,
+    "explanation": "45 minutes = 45/60 = 0.75 hours. Speed = distance / time = 60 / 0.75 = 80 km/h.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar21",
+    "question": "Two numbers are in the ratio 2:3. If their sum is 100, what is the first number?",
+    "options": ["40", "60", "50", "30"],
+    "answerIndex": 0,
+    "explanation": "Total parts = 2 + 3 = 5. First number = (2/5) * 100 = 40.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar22",
+    "question": "A shop offers 20% discount on an item priced at Rs. 500. What is the selling price?",
+    "options": ["Rs. 400", "Rs. 420", "Rs. 450", "Rs. 100"],
+    "answerIndex": 0,
+    "explanation": "Discount = 20% of 500 = 100. Selling price = 500 - 100 = 400.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar23",
+    "question": "What is the area of a circle with radius 7 cm? (Use π = 22/7)",
+    "options": ["154 cm²", "144 cm²", "169 cm²", "121 cm²"],
+    "answerIndex": 0,
+    "explanation": "Area = π r² = (22/7) * 7 * 7 = 22 * 7 = 154 cm².",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar24",
+    "question": "What is the volume of a cube with side length 3 cm?",
+    "options": ["27 cm³", "9 cm³", "81 cm³", "36 cm³"],
+    "answerIndex": 0,
+    "explanation": "Volume = side³ = 3 * 3 * 3 = 27 cm³.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar25",
+    "question": "What is 5 factorial (5!)?",
+    "options": ["120", "24", "720", "60"],
+    "answerIndex": 0,
+    "explanation": "5! = 5 * 4 * 3 * 2 * 1 = 120.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar26",
+    "question": "What is the sum of the first 100 natural numbers?",
+    "options": ["5050", "5000", "4950", "10000"],
+    "answerIndex": 0,
+    "explanation": "Sum = n(n+1)/2 = 100 * 101 / 2 = 5050.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar27",
+    "question": "In a right-angled triangle with legs 3 and 4, what is the hypotenuse?",
+    "options": ["5", "6", "7", "√7"],
+    "answerIndex": 0,
+    "explanation": "By Pythagoras theorem: hypotenuse = √(3² + 4²) = √(9 + 16) = √25 = 5.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar28",
+    "question": "What is log base 10 of 100?",
+    "options": ["2", "1", "10", "0"],
+    "answerIndex": 0,
+    "explanation": "log10(100) = log10(10²) = 2.",
+    "category": "arithmetic",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "ar29",
+    "question": "What is sin(90°)?",
+    "options": ["1", "0", "-1", "undefined"],
+    "answerIndex": 0,
+    "explanation": "Sine of 90 degrees is 1.",
+    "category": "arithmetic",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "ar30",
+    "question": "What is the smallest number divisible by all integers from 1 to 10?",
+    "options": ["2520", "5040", "1260", "720"],
+    "answerIndex": 0,
+    "explanation": "This is the LCM of 1 through 10. Prime factors: highest powers 2^3, 3^2, 5, 7. LCM = 8 * 9 * 5 * 7 = 2520.",
+    "category": "arithmetic",
+    "difficulty": "Hard"
+  }
+]

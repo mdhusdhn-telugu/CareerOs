@@ -1,0 +1,349 @@
+/* src/components/InterviewPreparation/GeminiOrb.css */
+
+/* --- LAYOUT WRAPPERS --- */
+.orb-session-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Background Visualizer Container */
+.orb-visualizer-container {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    pointer-events: none;
+    opacity: 1; 
+    z-index: 0;
+}
+
+.visualizer-canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.visualizer-3d-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- UI HEADER --- */
+.orb-header {
+    position: absolute;
+    top: 3rem; /* Slightly lower for better balance */
+    text-align: center;
+    z-index: 20;
+    width: 100%;
+}
+
+.orb-role-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(to bottom, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.02em;
+}
+
+.orb-status-badge {
+    margin-top: 0.8rem;
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- SPACER (Replaces the Orb to push text down) --- */
+.orb-spacer {
+    flex-grow: 1; /* Pushes content apart */
+    max-height: 200px; /* Limits the gap */
+    width: 100%;
+}
+
+/* --- STATUS TEXT --- */
+.orb-status-text {
+    height: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    z-index: 20;
+}
+
+/* Status Colors - CodeAstra Theme */
+.status-connecting { color: #ffffff; animation: pulse 1s infinite; }
+.status-listening  { color: #22d3ee; animation: pulse 2s infinite; } /* Cyan Pulse */
+.status-speaking   { color: #ffffff; font-weight: 700; text-shadow: 0 0 15px rgba(255,255,255,0.6); }
+.status-error      { color: #ef4444; }
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* --- CONTROLS --- */
+.orb-controls { 
+    z-index: 20;
+    margin-bottom: 3rem;
+}
+
+.orb-end-btn {
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+}
+
+.orb-end-btn:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    color: white;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
+}
+
+/* src/components/InterviewPreparation/GeminiOrb.css */
+
+/* ... (Keep all existing styles) ... */
+
+/* --- WEBCAM PREVIEW WIDGET --- */
+.webcam-wrapper {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 200px;
+    z-index: 50; /* Above everything else */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.webcam-frame {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: border-color 0.3s ease;
+}
+
+/* Add a glowing border when camera is on (Optional) */
+.webcam-wrapper:hover .webcam-frame {
+    border-color: rgba(34, 211, 238, 0.5); /* Cyan glow on hover */
+}
+
+.webcam-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Mirror effect like real meets */
+}
+
+.webcam-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+    color: #52525b;
+}
+
+.avatar-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #27272a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #a1a1aa;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.webcam-toggle {
+    background: rgba(20, 20, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.webcam-toggle:hover {
+    background: #fff;
+    color: #000;
+}
+
+.webcam-toggle.active {
+    background: #ef4444; /* Red button when camera is active (Stop) */
+    border-color: #ef4444;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .webcam-wrapper {
+        width: 120px;
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+/* src/components/InterviewPreparation/GeminiOrb.css */
+
+/* ... (Keep existing styles) ... */
+
+/* --- UPDATED WEBCAM --- */
+.webcam-wrapper {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 220px;
+    z-index: 50;
+}
+
+.webcam-frame {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: #000;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.webcam-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+.webcam-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+}
+
+.avatar-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #27272a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #a1a1aa;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* New Controls Overlay */
+.webcam-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.cam-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all 0.2s;
+}
+
+.cam-btn.on {
+    background: rgba(34, 211, 238, 0.2); /* Cyan tint */
+    border: 1px solid #22d3ee;
+    color: #22d3ee;
+}
+
+.cam-btn.off {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #a1a1aa;
+}
+
+.cam-btn:hover { transform: scale(1.05); }
+
+/* --- MODAL CLOSE X --- */
+.modal-top-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #a1a1aa;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-top-close:hover {
+    color: #fff;
+}
+
+/* ... (Rest of modal styles remain the same) ... */

@@ -1,0 +1,333 @@
+/* src/components/Profile/Profile.css */
+
+:root {
+  /* === THEME: DEEP OBSIDIAN === */
+  --bg-app: #050505;
+  --bg-sidebar: #0a0a0a;
+  --bg-card: #121212;
+  --bg-input: #171717;
+  
+  --border-subtle: #262626;
+  --border-highlight: #404040;
+  
+  --primary: #c084fc;
+  --primary-hover: #a855f7;
+  --primary-glow: rgba(192, 132, 252, 0.25);
+  
+  --danger: #ef4444;
+  --text-main: #ffffff;
+  --text-muted: #a3a3a3;
+  
+  --radius-lg: 12px;
+  --radius-pill: 50px;
+}
+
+/* === RESET === */
+* { box-sizing: border-box; }
+body { background-color: var(--bg-app); color: var(--text-main); font-family: 'Inter', sans-serif; }
+
+/* === ACTION BUTTONS ALIGNMENT FIX === */
+.form-actions {
+  display: flex;
+  flex-direction: row;        /* Forces row layout */
+  justify-content: flex-end;
+  align-items: center;        /* Forces vertical centering */
+  gap: 1.5rem;
+  margin-top: 3rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+  width: 100%;
+}
+
+/* Force both buttons to behave identically */
+.save-btn, 
+.cancel-btn {
+  width: 200px !important;
+  height: 52px !important;
+  margin: 0 !important;       /* Removes browser default offsets */
+  padding: 0 !important;      /* Removes padding to rely on flex centering */
+  
+  display: flex !important;   /* Uses flexbox inside the button */
+  align-items: center !important;
+  justify-content: center !important;
+  
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;             /* Prevents text line-height from shifting height */
+}
+
+/* SAVE BUTTON (Filled) */
+.save-btn {
+  background: var(--primary) !important;
+  color: #000 !important;
+  border: 1px solid transparent !important; /* Keeps border-box consistent */
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  background: var(--primary-hover) !important;
+  box-shadow: 0 0 25px var(--primary-glow);
+}
+
+/* CANCEL BUTTON (Outline) */
+.cancel-btn {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  border: 1px solid var(--border-subtle) !important;
+}
+
+.cancel-btn:hover {
+  border-color: var(--text-main) !important;
+  color: var(--text-main) !important;
+  background: rgba(255,255,255,0.05) !important;
+}
+
+/* === OTHER BUTTONS === */
+.create-new-btn, 
+.edit-btn {
+  background: var(--primary);
+  color: #000;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.create-new-btn:hover, .edit-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.icon-btn {
+  background: var(--bg-input);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.icon-btn.delete:hover {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+/* === FORM INPUTS (Height Fix) === */
+.profile-form-group { display: flex; flex-direction: column; gap: 0.8rem; }
+.profile-form-group label { color: var(--text-muted); font-size: 0.9rem; margin-left: 4px; }
+
+.profile-form-group input, 
+.profile-form-group select { 
+  background: var(--bg-input); 
+  border: 1px solid var(--border-subtle); 
+  color: var(--text-main); 
+  border-radius: var(--radius-lg); 
+  font-size: 1rem; 
+  outline: none; 
+  width: 100%;
+  height: 54px !important;    /* Forces Dropdown & Text to match */
+  padding: 0 1.2rem;
+}
+
+/* Custom Dropdown Arrow */
+.profile-form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23a3a3a3%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 0.8rem auto;
+}
+
+.profile-form-group input:focus, .profile-form-group select:focus { 
+  border-color: var(--primary); 
+  box-shadow: 0 0 0 2px var(--primary-glow); 
+}
+
+/* === LAYOUT === */
+.profile-container { display: flex; min-height: 100vh; background: var(--bg-app); }
+.profile-content { flex: 1; padding: 4rem 5rem; max-width: 1400px; margin: 0 auto; }
+.profile-sidebar { width: 280px; background: var(--bg-sidebar); border-right: 1px solid var(--border-subtle); display: flex; flex-direction: column; padding: 2rem 1.5rem; height: 100vh; position: sticky; top: 0; }
+
+.profile-image { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border-subtle); margin: 0 auto 1rem; }
+.profile-header { text-align: center; margin-bottom: 3rem; }
+.profile-nav { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.nav-btn { width: 100%; text-align: left; padding: 0.9rem 1.2rem; background: transparent; color: var(--text-muted); border: 1px solid transparent; border-radius: var(--radius-lg); cursor: pointer; font-size: 0.95rem; transition: all 0.2s; }
+.nav-btn:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.05); }
+.nav-btn.active { background: var(--primary-glow); color: var(--primary); border: 1px solid rgba(192, 132, 252, 0.3); font-weight: 600; }
+.logout-btn { margin-top: auto; padding: 1rem; background: transparent; border: none; color: var(--text-muted); cursor: pointer; }
+
+/* === EDIT PROFILE IMAGE === */
+.profile-picture-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+}
+
+.profile-image-large {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50% !important;
+  object-fit: cover;
+  border: 2px solid var(--border-subtle);
+}
+
+.file-input { display: none; }
+.file-input-label { background: var(--border-subtle); color: var(--text-main); padding: 0.6rem 1.5rem; border-radius: var(--radius-pill); cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: background 0.2s; }
+.file-input-label:hover { background: var(--border-highlight); }
+.file-input-text { font-style: italic; color: var(--text-muted); font-size: 0.9rem; }
+
+/* === VIEW MODE === */
+.profile-card { width: 100%; animation: fadeIn 0.4s ease-out; }
+.view-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem; }
+.view-header h2 { font-size: 2rem; margin: 0; border: none; }
+.profile-form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+.view-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+.view-info-item label { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem; }
+.view-info-item p { color: var(--text-main); font-size: 1.25rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.5rem; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+  .profile-container { flex-direction: column; }
+  .profile-sidebar { width: 100%; height: auto; position: relative; padding: 1rem; border-right: none; border-bottom: 1px solid var(--border-subtle); }
+  .profile-content { padding: 2rem 1.5rem; }
+  .view-info-grid { grid-template-columns: 1fr; }
+  .form-actions { flex-direction: column-reverse; }
+  .save-btn, .cancel-btn { width: 100% !important; }
+}
+
+/* === SAVED QUESTIONS & CARD FIXES === */
+
+/* The Card Container - Giving it a solid background so text pops */
+.saved-item-card {
+  background: var(--bg-card); /* #121212 */
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.saved-item-card:hover {
+  border-color: var(--primary);
+  background: #1a1a1a; /* Slightly lighter on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* Typography Fixes - forcing white text */
+.saved-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.saved-item-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main); /* Pure White */
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.saved-item-tags {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge-topic {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* === ICON BUTTONS: High Contrast Version === */
+/* Removing the 'ghost' look. Making them solid for visibility. */
+.saved-action-btn {
+  background: var(--bg-input); /* Dark Grey background */
+  color: var(--text-muted);    /* Light Grey Icon */
+  border: 1px solid var(--border-subtle);
+  width: 48px;                 /* Slightly larger touch target */
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Practice Button Hover - Glows Purple */
+.saved-action-btn.practice:hover {
+  background: var(--primary);
+  color: #000; /* Black icon on purple bg for max contrast */
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+  transform: translateY(-2px);
+}
+
+/* Delete Button Hover - Glows Red */
+.saved-action-btn.delete:hover {
+  background: var(--danger);
+  color: #fff;
+  border-color: var(--danger);
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ... existing code ... */
+
+/* === FORCE ICON SIZE FIX === */
+.saved-action-btn {
+  /* Ensure the button is big enough to hold the icon */
+  width: 50px !important; 
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+/* TARGET THE SVG DIRECTLY */
+.saved-action-btn svg {
+  width: 28px !important;  /* Force width */
+  height: 28px !important; /* Force height */
+  min-width: 28px !important; /* Prevent squashing */
+  min-height: 28px !important;
+  stroke-width: 2px !important; /* Make lines thicker */
+}

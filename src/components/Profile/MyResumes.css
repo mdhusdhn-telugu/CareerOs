@@ -1,0 +1,118 @@
+/* src/components/Profile/MyResumes.css */
+
+.my-resumes-container {
+  width: 100%;
+}
+
+.my-resumes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.my-resumes-header h2 {
+  /* Override default h2 margin since we handle it in flex container */
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+.create-new-btn {
+  background: var(--primary);
+  color: #000; /* Contrast on amber */
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.create-new-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+.resume-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.resume-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s;
+}
+
+.resume-list-item:hover {
+  border-color: var(--primary);
+}
+
+.resume-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.resume-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text-main);
+}
+
+.resume-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: monospace; /* Gives a technical feel */
+}
+
+.resume-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.edit-btn {
+  background: transparent;
+  border-color: var(--border-subtle);
+  color: var(--text-main);
+}
+
+.edit-btn:hover {
+  background: var(--text-main);
+  color: var(--bg-app);
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.delete-btn:hover {
+  background-color: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}

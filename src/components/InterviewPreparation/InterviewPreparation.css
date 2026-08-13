@@ -1,0 +1,327 @@
+/* src/components/InterviewPreparation/InterviewPreparation.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-deep: #030303;
+  --text-white: #ffffff;
+  --text-grey: #a1a1aa;
+  --accent-cyan: #22d3ee;
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(10, 10, 10, 0.6);
+}
+
+.ip-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-deep);
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif;
+  
+  /* The CodeAstra Infinite Grid */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* Ambient Spotlights */
+.ip-spotlight {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.ip-spotlight.top { top: -200px; left: 50%; transform: translateX(-50%); }
+/* src/components/InterviewPreparation/InterviewPreparation.css */
+
+.ip-glass-panel {
+  position: relative;
+  width: 100%;
+  
+  /* --- CHANGED FROM 500px TO 700px --- */
+  max-width: 700px; 
+  
+  padding: 3.5rem; /* Increased padding slightly for better proportions */
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Typography */
+.ip-title-large {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to bottom, #fff 40%, #888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ip-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-grey);
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Inputs */
+.ip-input-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.ip-minimal-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  font-size: 1rem;
+  color: white;
+  text-align: left;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.ip-minimal-input:focus {
+  border-color: var(--text-white);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  background: rgba(20, 20, 20, 0.8);
+}
+
+.ip-minimal-input::placeholder { color: #52525b; }
+
+/* Drop Zone */
+.ip-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  border: 1px dashed var(--glass-border);
+  border-radius: 16px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.01);
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ip-drop-zone:hover {
+  border-color: var(--text-white);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ip-drop-zone.active {
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.scan-line {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 2px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  animation: scan 2s linear infinite;
+  opacity: 0;
+}
+.ip-drop-zone.active .scan-line { opacity: 1; }
+
+@keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+
+/* Buttons */
+.ip-hero-btn {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 1.2rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: -0.01em;
+}
+
+.ip-hero-btn:hover:not(:disabled) {
+  background: #e4e4e7;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.ip-hero-btn:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* File Info Styles */
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.file-icon { font-size: 1.5rem; }
+.file-name { font-weight: 600; color: var(--text-white); font-size: 0.9rem; }
+.file-meta { font-size: 0.8rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; }
+
+/* src/components/InterviewPreparation/InterviewPreparation.css */
+
+/* ... other styles ... */
+
+.ip-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d4d4d8; /* Zinc-300 */
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ip-description strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* src/components/InterviewPreparation/InterviewPreparation.css */
+
+/* ... (Keep your :root and .ip-wrapper styles) ... */
+
+/* --- GLASS PANEL (Container) --- */
+.ip-glass-panel {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  /* Removed padding here, moved to content layer */
+  background: rgba(10, 10, 10, 0.4); /* Made more transparent to see 3D */
+  backdrop-filter: blur(10px);        /* Reduced blur slightly for depth */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+  z-index: 10;
+  overflow: hidden; /* Keeps 3D particles inside rounded corners */
+}
+
+/* --- 3D CANVAS WRAPPER --- */
+.neural-canvas-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Behind content */
+  pointer-events: none; /* Let clicks pass through */
+  opacity: 0.6; /* Subtle effect */
+}
+
+/* --- CONTENT LAYER --- */
+.ip-panel-content {
+  position: relative;
+  z-index: 10; /* Above 3D canvas */
+  padding: 3rem;
+  text-align: center;
+}
+
+/* ... (Keep Typography, Inputs, Drop Zone, Buttons) ... */
+
+/* Ensure text is readable over particles */
+.ip-subtitle {
+  color: #a1a1aa;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.ip-drop-zone {
+  background: rgba(0, 0, 0, 0.4); /* Darker background for dropzone readability */
+  backdrop-filter: blur(5px);
+}
+
+/* ... rest of inputs/buttons ... */
+
+/* src/components/InterviewPreparation/InterviewPreparation.css */
+
+/* ... Keep all your existing glass panel styles ... */
+
+/* --- ERROR MODAL STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.error-modal {
+  position: relative; /* Needed for absolute positioning of X button */
+  background: #0a0a0a;
+  border: 1px solid #ef4444; 
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(239, 68, 68, 0.2);
+}
+
+/* Close X Button Style */
+.modal-top-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: #a1a1aa;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.modal-top-close:hover {
+  color: #fff;
+}
+
+.modal-icon-wrapper { margin-bottom: 1rem; }
+.error-modal h3 { color: #fff; font-size: 1.25rem; margin-bottom: 0.5rem; }
+.error-modal p { color: #a1a1aa; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem; }
+
+.modal-close-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.modal-close-btn:hover { opacity: 0.9; }

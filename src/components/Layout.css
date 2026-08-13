@@ -1,0 +1,276 @@
+/* src/components/Layout.css */
+
+/* --- 1. Global & Variables --- */
+:root {
+  --primary-color: #ab47bc;       
+  --bg-dark: #0a0e17;             /* Deep Space Black */
+  --nav-bg: rgba(10, 14, 23, 0.95); /* 95% Opaque - Solid but Modern */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;      /* Crisp Light Gray */
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Import Fonts (Logo Fonts + Modern UI Font) */
+@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&family=Seaweed+Script&family=Inter:wght@400;500;600&display=swap');
+
+/* --- 2. Navbar Container --- */
+.navbar {
+  width: 100%;
+  padding: 12px 32px; /* Spacious "High-End" Padding */
+  display: flex;
+  justify-content: space-between; /* Pushes Logo Left, Group Right */
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  
+  /* Premium Opaque Look */
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--glass-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: padding 0.3s ease;
+}
+
+/* --- 3. ORIGINAL LOGO STYLES (PRESERVED) --- */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit; 
+  flex-shrink: 0; /* Prevents logo from squishing */
+}
+
+.rocket-icon {
+  width: 28px;
+  height: 28px;
+  color: #ab47bc; 
+  margin-right: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(171, 71, 188, 0.5));
+}
+
+.logo-link:hover .rocket-icon {
+  transform: translateY(-3px) rotate(-10deg);
+  color: #6a1b9a;
+}
+
+.code-logo, .astra-logo {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1); 
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover .code-logo,
+.logo-link:hover .astra-logo {
+  transform: scale(1.02);
+}
+
+.code-logo {
+  font-family: 'WindSong', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-right: 5px;
+  background: linear-gradient(45deg, #42a5f5, #ab47bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.astra-logo {
+  font-family: 'Seaweed Script', sans-serif;
+  font-size: 24px;
+  background: linear-gradient(45deg, #ff7043, #f06292);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* --- 4. RIGHT SIDE GROUPING --- */
+.nav-right-group {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between Links and Profile Button */
+}
+
+/* Desktop Navigation Pills */
+.nav-links.desktop-only {
+  display: flex;
+  gap: 5px;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.03); /* Subtle container background */
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-link {
+  font-family: var(--font-ui);
+  text-decoration: none;
+  color: var(--text-secondary); /* Light Gray */
+  font-weight: 500;
+  font-size: 14px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect */
+.nav-link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Active State (Pill Highlight) */
+.nav-link.active {
+  color: #ffffff !important;
+  background: linear-gradient(90deg, rgba(66, 165, 245, 0.15), rgba(171, 71, 188, 0.15));
+  border: 1px solid rgba(171, 71, 188, 0.3);
+  box-shadow: 0 0 10px rgba(171, 71, 188, 0.1);
+  font-weight: 600;
+}
+
+/* --- 5. PREMIUM PROFILE BUTTON (The "Cosmic" Look) --- */
+.profile-btn {
+  /* Gradient matching the 'Code' and Rocket logo */
+  background: linear-gradient(135deg, #ab47bc 0%, #42a5f5 100%);
+  color: #ffffff !important;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  padding: 8px 24px; /* Wider for a premium pill shape */
+  border-radius: 30px; /* Fully rounded pill */
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  
+  /* The Premium Glow */
+  box-shadow: 0 4px 15px rgba(171, 71, 188, 0.4); /* Purple glow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect overlay */
+.profile-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.profile-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(66, 165, 245, 0.6); /* Blueish-Purple glow */
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-btn:hover::before {
+  left: 100%; /* Moves the shine across the button */
+}
+
+.profile-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 10px rgba(171, 71, 188, 0.3);
+}
+
+/* Active Page State for Profile */
+.profile-btn.active {
+  background: linear-gradient(135deg, #8e24aa, #1e88e5);
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- 6. Mobile Toggle --- */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.3s ease;
+}
+
+.mobile-toggle:hover {
+  color: var(--primary-color);
+}
+
+/* --- 7. Responsive Styles --- */
+@media (max-width: 1024px) {
+  .nav-links.desktop-only {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+  
+  .code-logo { font-size: 24px; }
+  .astra-logo { font-size: 20px; }
+  .rocket-icon { width: 24px; height: 24px; }
+}
+
+/* --- 8. Mobile Menu Dropdown --- */
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-dark);
+  border-bottom: var(--glass-border);
+  display: none;
+  flex-direction: column;
+  padding: 10px 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-link {
+  padding: 12px 32px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+  transition: all 0.2s ease;
+}
+
+.mobile-link:hover {
+  background: rgba(255, 255, 255, 0.03);
+  padding-left: 36px; /* Subtle slide effect */
+  color: #fff;
+}
+
+.mobile-link.active {
+  color: var(--primary-color);
+  background: rgba(255,255,255,0.03);
+  border-left: 3px solid var(--primary-color);
+}

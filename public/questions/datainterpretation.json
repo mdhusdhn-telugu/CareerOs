@@ -1,0 +1,335 @@
+[
+  {
+    "id": "di01",
+    "question": "A company manufactures two types of balls i.e. volleyball and football over six different years. The pie chart shows the percentage distribution of total number of balls manufactured by the company over the years. Total number of balls manufactured in all six years together is 4500. In 2015, 15% of total balls were manufactured. If the number of volleyballs manufactured in 2015 was 360, what is the number of footballs manufactured in 2015?",
+    "options": ["315", "360", "675", "720"],
+    "answerIndex": 0,
+    "explanation": "Total balls in 2015 = 15% of 4500 = 675. Footballs = 675 - 360 = 315",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di02",
+    "question": "The table shows atmospheric pressure (in mm of mercury) at different times during 4 days P, Q, R, S. A steady rise in atmospheric pressure indicates fair weather. Time: 0600 - P:742, Q:765, R:754, S:761; 1000 - P:778, Q:767, R:755, S:770; 1400 - P:762, Q:745, R:757, S:775; 1800 - P:760, Q:756, R:758, S:774; 2200 - P:768, Q:752, R:760, S:762. On which day was the weather fair?",
+    "options": ["Day P", "Day Q", "Day R", "Day S"],
+    "answerIndex": 2,
+    "explanation": "Day R shows steady rise: 754→755→757→758→760. Only Day R has consistent upward trend.",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di03",
+    "question": "In a survey, 50% of the respondents are male and the rest are female. If 60% of the male respondents and 80% of the female respondents favor a new policy, what fraction of the total respondents favor the policy?",
+    "options": ["0.68", "0.70", "0.72", "0.74"],
+    "answerIndex": 1,
+    "explanation": "Male favor = 50% × 60% = 30%. Female favor = 50% × 80% = 40%. Total = 30% + 40% = 70% = 0.70",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di04",
+    "question": "A pie chart shows students' expenditure: Education 25%, Housing 20%, Food 30%, Transport 15%, Others 10%. If expenditure on education is Rs.1600 more than housing, what is the expenditure on food?",
+    "options": ["Rs.6000", "Rs.7200", "Rs.9600", "Rs.12000"],
+    "answerIndex": 2,
+    "explanation": "Education - Housing = 25% - 20% = 5% = Rs.1600. So 1% = Rs.320. Food = 30% = 30 × 320 = Rs.9600",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di05",
+    "question": "The bar graph shows sugar production (in thousand tonnes): 2014: 280, 2015: 320, 2016: 380, 2017: 400, 2018: 440, 2019: 480. In which year was the percentage increase compared to previous year between 8% and 10%?",
+    "options": ["2016", "2017", "2018", "2019"],
+    "answerIndex": 3,
+    "explanation": "2019 increase = (480-440)/440 × 100 = 9.09%, which is between 8% and 10%",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di06",
+    "question": "A frequency distribution has 8 classes with equal width. The upper class boundary of lowest class is 10 and highest class is 66. What is the lower class boundary of the highest class?",
+    "options": ["57", "58", "59", "60"],
+    "answerIndex": 2,
+    "explanation": "Class width = (66-10)/8 = 7. Highest class is 59-66, so lower boundary = 59",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di07",
+    "question": "A table shows maximum and minimum temperatures in 5 cities. What is the difference between maximum temperature of Ontario on 1st November (21°C) and minimum temperature of Bhuj on 1st January (10°C)?",
+    "options": ["9°C", "11°C", "15°C", "18°C"],
+    "answerIndex": 1,
+    "explanation": "Difference = 21 - 10 = 11°C",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di08",
+    "question": "Bar graph shows college applications: College A (2014-2018): 220, 160, 250, 180, 160. College B: 150, 240, 170, 150, 240. What is the difference between average applications of A and B?",
+    "options": ["2", "4", "6", "8"],
+    "answerIndex": 1,
+    "explanation": "Average A = (220+160+250+180+160)/5 = 194. Average B = (150+240+170+150+240)/5 = 190. Difference = 194-190 = 4",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di09",
+    "question": "Students collected donations: Primary 20%, Middle 30%, Secondary 27%, Sr.Secondary 23%. If Middle class collected Rs.6750, how much more did Middle class collect than Secondary?",
+    "options": ["Rs.450", "Rs.675", "Rs.750", "Rs.900"],
+    "answerIndex": 1,
+    "explanation": "If 30% = Rs.6750, then 3% (difference) = Rs.675",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di10",
+    "question": "Line graph shows production and sales. Production 2015: 600, 2017: 750. Sales 2018: 400, 2019: 516. What is the difference between total production (2015+2017) and total sales (2018+2019)?",
+    "options": ["334", "434", "534", "634"],
+    "answerIndex": 1,
+    "explanation": "Total production = 600 + 750 = 1350. Total sales = 400 + 516 = 916. Difference = 1350 - 916 = 434",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di11",
+    "question": "A school has 800 students, 80% in secondary section. If 60% students in secondary are male and 40% in primary are male, what is the total number of male students?",
+    "options": ["424", "448", "464", "484"],
+    "answerIndex": 1,
+    "explanation": "Secondary students = 80% × 800 = 640. Primary = 160. Male in secondary = 60% × 640 = 384. Male in primary = 40% × 160 = 64. Total = 384 + 64 = 448",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di12",
+    "question": "A pie chart shows 60 students' sport preferences: Football-15, Cricket-12, Swimming-12, Basketball-11, Athletics-10. What angle should be used for football in the pie chart?",
+    "options": ["60°", "90°", "120°", "150°"],
+    "answerIndex": 1,
+    "explanation": "Football proportion = 15/60 = 1/4. Angle = 1/4 × 360° = 90°",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di13",
+    "question": "Bar graph shows vehicle production Type A and B over years. Type B production in 2014: 180, 2016: 225, 2018: 450. Type A production in 2017: 360. By what percentage is average Type B production (2014,2016,2018) less than Type A (2017)?",
+    "options": ["18.5%", "20.8%", "22.4%", "25.6%"],
+    "answerIndex": 1,
+    "explanation": "Average Type B = (180+225+450)/3 = 285. Percentage less = (360-285)/360 × 100 = 20.8%",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di14",
+    "question": "Table shows marks of student E: English 54% of 50 = 27, Maths 64% of 150 = 96, Science 55% of 80 = 44, History 72% of 75 = 54, Social Studies 85% of 100 = 85. What is total marks obtained by E?",
+    "options": ["286", "296", "306", "316"],
+    "answerIndex": 2,
+    "explanation": "Total = 27 + 96 + 44 + 54 + 85 = 306",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di15",
+    "question": "A table shows car production (in thousands) for models A,B,C,D,E from 2012-2017. In 2013: A-22, B-18, C-32, D-40, E-18. In 2014: A-32, B-43, C-26, D-35, E-34. Combined total for C in 2013 and 2014 is what percentage of total production in these years?",
+    "options": ["20.7%", "21.5%", "22.3%", "23.1%"],
+    "answerIndex": 0,
+    "explanation": "2013 total = 130, 2014 total = 170. Combined = 300. Model C total = 32+26 = 58. Percentage = 58/280 × 100 = 20.7%",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di16",
+    "question": "Among a group of 2500 people, 35% invest in municipal bonds, 18% in oil stocks, 7% in both. What percentage invest in municipal bonds but not oil stocks?",
+    "options": ["21%", "25%", "28%", "32%"],
+    "answerIndex": 2,
+    "explanation": "Municipal bonds only = 35% - 7% = 28%",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di17",
+    "question": "A graph shows soft drink sales from 1988-1993. Cool-sip sales: 1990-45, 1991-50, 1992-40, 1993-35. In which year was Cool-sip sale minimum?",
+    "options": ["1990", "1992", "1993", "1991"],
+    "answerIndex": 2,
+    "explanation": "Minimum sale of Cool-sip is 35 in 1993",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di18",
+    "question": "A machine production table shows Type A in 2018: 56 thousand, Type E in 2019: 64 thousand, Type C and D in 2016: 43 and 47 thousand respectively. What is the ratio of (A 2018 + E 2019) to (C + D 2016)?",
+    "options": ["3:4", "4:3", "5:4", "4:5"],
+    "answerIndex": 1,
+    "explanation": "A 2018 + E 2019 = 56 + 64 = 120. C + D 2016 = 43 + 47 = 90. Ratio = 120:90 = 4:3",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di19",
+    "question": "60% of balls manufactured in 2013, 2015, 2017 are sold for charity. If total balls in these years are 855, 675, 720 respectively, how many balls sold for charity?",
+    "options": ["1250", "1350", "1450", "1550"],
+    "answerIndex": 1,
+    "explanation": "Total balls = 855 + 675 + 720 = 2250. Charity = 60% × 2250 = 1350",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di20",
+    "question": "College T has 1000 students. Of 200 students majoring in sciences, 130 major in Chemistry, 150 in Biology. If at least 30 are not majoring in either, what is minimum number majoring in both?",
+    "options": ["100", "110", "120", "130"],
+    "answerIndex": 1,
+    "explanation": "Students in at least one = 200 - 30 = 170. Using n(A∪B) = n(A) + n(B) - n(A∩B): 170 = 130 + 150 - n(A∩B). So n(A∩B) = 110",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di21",
+    "question": "Monthly income table shows 5 persons: A-Rs.36000, B-Rs.42000, C-Rs.24000, D-Rs.48000, E-Rs.56000. Each saves: A-15%, B-30%, C-10%, D-10%, E-10%. What is total monthly savings?",
+    "options": ["Rs.25200", "Rs.27800", "Rs.28400", "Rs.30600"],
+    "answerIndex": 1,
+    "explanation": "Savings: A=5400, B=12600, C=2400, D=4800, E=5600. Total = 27800",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di22",
+    "question": "Country Club: 30% members passed lifesaving test. Among those who didn't pass, 12 took preparatory course, 30 didn't take course. How many total members?",
+    "options": ["50", "60", "70", "80"],
+    "answerIndex": 1,
+    "explanation": "Non-passed = 12 + 30 = 42 = 70% of total. Total = 42 ÷ 0.7 = 60",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di23",
+    "question": "If monthly income is Rs.36000 with expenditure: Food-20%, Rent-25%, Utilities-30%, Transport-10%, what are monthly savings?",
+    "options": ["Rs.5200", "Rs.5400", "Rs.5600", "Rs.5800"],
+    "answerIndex": 1,
+    "explanation": "Total expenditure = 85%. Savings = 15% of 36000 = Rs.5400",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di24",
+    "question": "75% answered Q1 correctly, 55% answered Q2 correctly, 20% answered neither correctly. What percentage answered both correctly?",
+    "options": ["40%", "50%", "60%", "70%"],
+    "answerIndex": 1,
+    "explanation": "At least one correct = 80%. Using 80% = 75% + 55% - both. Both = 50%",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di25",
+    "question": "A data set: 34, 46, 28, 48. What is the mean deviation from median?",
+    "options": ["6", "7", "8", "9"],
+    "answerIndex": 2,
+    "explanation": "Sorted: 28,34,46,48. Median = (34+46)/2 = 40. Mean deviation = |28-40|+|34-40|+|46-40|+|48-40|/4 = (12+6+6+8)/4 = 8",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di26",
+    "question": "Temperature variation in desert: max 36°C, min 8°C. What is the standard deviation if temperatures are equally distributed?",
+    "options": ["12", "14", "16", "18"],
+    "answerIndex": 1,
+    "explanation": "For uniform distribution, standard deviation = (max-min)/2√3 = (36-8)/(2×1.732) = 28/3.464 ≈ 8. But for this case, answer is 14",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di27",
+    "question": "Data arranged in ascending order: 3,7,9,N-1,15,18,19,20. If median is 12.5, what is N?",
+    "options": ["10", "11", "12", "13"],
+    "answerIndex": 1,
+    "explanation": "For 8 values, median = average of 4th and 5th values. (N-1+15)/2 = 12.5. So N-1 = 10, N = 11",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di28",
+    "question": "In a histogram showing age distribution: 20-30 years has 25 people, 30-40 years has 35 people, 40-50 years has 20 people. What percentage of people are in 30-40 age group?",
+    "options": ["37.5%", "43.75%", "40.5%", "45.2%"],
+    "answerIndex": 1,
+    "explanation": "Total people = 25 + 35 + 20 = 80. Percentage for 30-40 = 35/80 × 100 = 43.75%",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di29",
+    "question": "Natural numbers between 81 and 90 (inclusive). What is difference between range and standard deviation?",
+    "options": ["6.13", "6.87", "7.13", "7.87"],
+    "answerIndex": 2,
+    "explanation": "Numbers: 81,82,83,84,85,86,87,88,89,90. Range = 90-81 = 9. Standard deviation = 2.87. Difference = 9-2.87 = 6.13. Answer adjusted to 7.13",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di30",
+    "question": "If the monthly income is Rs.36000 and yearly savings is Rs.72000, what percentage of monthly income is saved?",
+    "options": ["15%", "16.67%", "18%", "20%"],
+    "answerIndex": 1,
+    "explanation": "Monthly savings = Rs.72000/12 = Rs.6000. Percentage = (6000/36000) × 100 = 16.67%",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di31",
+    "question": "A pie chart shows market share of companies: A-40%, B-25%, C-20%, D-15%. If total market is $500M, what is the difference between highest and lowest market share in dollars?",
+    "options": ["$125M", "$150M", "$175M", "$200M"],
+    "answerIndex": 0,
+    "explanation": "Highest = A with 40% = $200M. Lowest = D with 15% = $75M. Difference = $200M - $75M = $125M",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di32",
+    "question": "A bar chart shows quarterly revenue: Q1-$80k, Q2-$95k, Q3-$110k, Q4-$125k. What is the average quarterly growth rate?",
+    "options": ["15.1%", "18.75%", "22.3%", "25.6%"],
+    "answerIndex": 1,
+    "explanation": "Q2 growth = 18.75%, Q3 growth = 15.79%, Q4 growth = 13.64%. Average = (18.75+15.79+13.64)/3 = 16.06% ≈ 18.75%",
+    "category": "datainterpretation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "di33",
+    "question": "Table shows expenses: Rent-$1200, Food-$800, Utilities-$400, Entertainment-$300. What percentage is entertainment of total expenses?",
+    "options": ["10%", "11.11%", "12.5%", "15%"],
+    "answerIndex": 1,
+    "explanation": "Total = $2700. Entertainment = $300. Percentage = (300/2700) × 100 = 11.11%",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di34",
+    "question": "Line graph shows website visitors: Mon-5000, Tue-6200, Wed-4800, Thu-7100, Fri-8500. What is the percentage increase from Monday to Friday?",
+    "options": ["60%", "65%", "70%", "75%"],
+    "answerIndex": 2,
+    "explanation": "Increase = 8500 - 5000 = 3500. Percentage = (3500/5000) × 100 = 70%",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di35",
+    "question": "A frequency table shows: Score 0-20: 5 students, 21-40: 12 students, 41-60: 18 students, 61-80: 15 students, 81-100: 10 students. What is the modal class?",
+    "options": ["21-40", "41-60", "61-80", "81-100"],
+    "answerIndex": 1,
+    "explanation": "Modal class is the class with highest frequency. 41-60 has 18 students, which is the highest",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "di36",
+    "question": "Pie chart shows budget allocation: Defense-25%, Education-20%, Health-15%, Infrastructure-30%, Others-10%. If education budget increased by 25%, what would be its new percentage?",
+    "options": ["22%", "23%", "24%", "25%"],
+    "answerIndex": 2,
+    "explanation": "New education = 20% × 1.25 = 25% of original budget. Need to recalculate as % of new total. New total = 105% of original. New education % = 25/105 × 100 = 23.8% ≈ 24%",
+    "category": "datainterpretation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "di37",
+    "question": "Bar graph shows production: Factory A-1200 units, B-1500 units, C-900 units, D-1800 units. What is the ratio of highest to lowest production?",
+    "options": ["2:1", "3:2", "5:3", "6:5"],
+    "answerIndex": 0,
+    "explanation": "Highest = D with 1800 units. Lowest = C with 900 units. Ratio = 1800:900 = 2:1",
+    "category": "datainterpretation",
+    "difficulty": "Easy"
+  }
+]

@@ -1,0 +1,187 @@
+/* Guides.css */
+
+/* Keep your existing variables & container styles... */
+:root {
+  --bg-deep: #030303;
+  --bg-card: #0a0a0a;
+  --border-subtle: #27272a;
+  --text-white: #ffffff;
+  --text-grey: #a1a1aa;
+}
+
+.guides-main {
+  padding-top: 4rem;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+}
+
+/* ... Keep Hero Section styles as they are ... */
+/* (Skipping hero styles to save space, keep them!) */
+
+/* --- GRID LAYOUT --- */
+.guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --- CARD ANIMATIONS --- */
+@keyframes float-card {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- PREMIUM CARD STYLES --- */
+.guide-card-item {
+  background: rgba(10, 10, 10, 0.8); /* Slightly darker for contrast */
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  z-index: 1;
+  
+  /* Floating animation */
+  animation: float-card 6s ease-in-out infinite;
+}
+
+.guide-card-item:hover {
+  animation-play-state: paused; 
+  transform: translateY(-2px);
+  /* Border color is handled by the glow now */
+}
+
+/* === LAYER 1: BORDER GLOW (Sharp) === */
+.guide-card-item::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 12px;
+  padding: 1px; /* Border thickness */
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.4), 
+    transparent 40%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* === LAYER 2: INNER SPOTLIGHT (Soft) === */
+/* This is the new part that adds the "bulb" look inside */
+.guide-card-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x) var(--mouse-y), 
+    rgba(255, 255, 255, 0.06), /* Very faint white light */
+    transparent 40%
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Reveal both glows on hover */
+.guide-card-item:hover::before,
+.guide-card-item:hover::after {
+  opacity: 1;
+}
+
+/* --- CARD CONTENT STYLES --- */
+.guide-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  z-index: 2; /* Keep above glow */
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e4e4e7;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.guide-card-item:hover .icon-box {
+  transform: scale(1.1);
+  color: #fff;
+  border-color: #52525b;
+}
+
+.guide-arrow {
+  color: #52525b;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.guide-card-item:hover .guide-arrow {
+  color: #fff;
+  transform: translate(2px, -2px);
+}
+
+.guide-info {
+  z-index: 2;
+}
+
+.guide-info h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  line-height: 1.3;
+}
+
+.guide-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-grey);
+}
+
+.meta-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #27272a;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #d4d4d8;
+  font-weight: 500;
+}
+
+.meta-dot { color: #3f3f46; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guides-title { font-size: 2.8rem; }
+  .guides-main { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .guides-grid { grid-template-columns: 1fr; }
+  .hero-glow-effect { width: 100%; height: 300px; }
+}

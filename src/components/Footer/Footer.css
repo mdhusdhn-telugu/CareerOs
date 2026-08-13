@@ -1,0 +1,155 @@
+/* Import Google Fonts for the logo AND UI */
+@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&family=Seaweed+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Inter:wght@400&display=swap');
+
+.footer {
+  background-color: transparent;
+  padding: 60px 5% 30px;
+  color: #8b949e;
+  margin-top: auto;
+  border-top: 1px solid #30363d;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+.footer-content {
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  max-width: 300px;
+  margin-right: 40px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin: 0 0 15px 0;
+}
+
+.footer-rocket-icon {
+  width: 32px;
+  height: 32px;
+  color: #ab47bc;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 5px rgba(171, 71, 188, 0.5));
+}
+
+.footer-code-logo,
+.footer-astra-logo {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.2);
+}
+
+.footer-code-logo {
+  font-family: 'WindSong', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 5px;
+  background: linear-gradient(45deg, #42a5f5, #ab47bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-astra-logo {
+  font-family: 'Seaweed Script', sans-serif;
+  font-size: 26px;
+  background: linear-gradient(45deg, #ff7043, #f06292);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.footer-brand p {
+  margin: 0 0 20px 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: #8b949e;
+  transition: color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ab47bc;
+  transform: translateY(-3px);
+  filter: drop-shadow(0 0 4px rgba(171, 71, 188, 0.6));
+}
+
+.footer-links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.footer-links-column h4 {
+  font-size: 1.1rem;
+  color: #c9d1d9;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-links-column ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-column li {
+  margin-bottom: 12px;
+}
+
+.footer-links-column a {
+  color: #8b949e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-links-column a:hover {
+  color: #f8fafd;
+}
+
+.footer-link-active {
+  color: #c9d1d9; /* Brighter text color */
+  font-weight: 500;
+  cursor: default;
+}
+
+.footer-divider {
+  border: none;
+  height: 1px;
+  background-color: #30363d;
+  margin: 0;
+}
+
+.footer-bottom {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.copyright {
+  margin: 0;
+}

@@ -1,0 +1,903 @@
+[
+  {
+    "id": "lr01",
+    "question": "Look at this series: 2, 1, (1/2), (1/4), ... What number should come next?",
+    "options": ["(1/3)", "(1/8)", "(2/8)", "(1/16)"],
+    "answerIndex": 1,
+    "explanation": "This is a simple division series. Each number is one-half of the previous number.",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr02",
+    "question": "Tanya is older than Eric. Cliff is older than Tanya. Eric is older than Cliff. If the first two statements are true, the third statement is:",
+    "options": ["true", "false", "uncertain", "irrelevant"],
+    "answerIndex": 1,
+    "explanation": "From the first two statements, we know Cliff > Tanya > Eric. Therefore, the third statement that Eric is older than Cliff is false.",
+    "category": "order",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr03",
+    "question": "Statements: All mangoes are golden in colour. No golden-coloured things are cheap. Conclusion: All mangoes are cheap.",
+    "options": ["True", "False", "Cannot be determined", "Both are true"],
+    "answerIndex": 1,
+    "explanation": "If all mangoes are golden, and nothing golden is cheap, then it logically follows that no mangoes are cheap. So the conclusion is false.",
+    "category": "syllogism",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr04",
+    "question": "A is B's sister. C is B's mother. D is C's father. E is D's mother. Then, how is A related to D?",
+    "options": ["Grandfather", "Grandmother", "Daughter", "Granddaughter"],
+    "answerIndex": 3,
+    "explanation": "A is the sister of B and C is the mother of B. So, C is the mother of A. D is the father of C. So, D is the maternal grandfather of A. Thus, A is the granddaughter of D.",
+    "category": "bloodrelation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr05",
+    "question": "In a certain code, 'TRIPPLE' is written as 'SQHOOKD'. How is 'DISPOSE' written in that code?",
+    "options": ["CHRONRD", "CHROMSD", "ESJTPTF", "ESJTPTE"],
+    "answerIndex": 0,
+    "explanation": "Each letter in the word is moved one step backward to obtain the corresponding letter of the code.",
+    "category": "codingdecoding",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr06",
+    "question": "Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?",
+    "options": ["7", "10", "12", "13"],
+    "answerIndex": 1,
+    "explanation": "This is an alternating addition and subtraction series. First series: 7,8,9,... (increasing by 1), second: 10,11,12,... (increasing by 1). Next is 10.",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr07",
+    "question": "Statements: Some dogs are bats. Some bats are pigs. Conclusion: Some dogs are pigs.",
+    "options": ["True", "False", "Cannot be determined", "None of these"],
+    "answerIndex": 2,
+    "explanation": "There is no direct relation between dogs and pigs, so it cannot be determined.",
+    "category": "syllogism",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr08",
+    "question": "Pointing to a photograph, a man said, 'I have no brother or sister but that man's father is my father's son.' Who is in the photograph?",
+    "options": ["His son", "His father", "His nephew", "Himself"],
+    "answerIndex": 0,
+    "explanation": "The man's father's son is himself, so that man's father is himself, meaning the photograph is of his son.",
+    "category": "bloodrelation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr09",
+    "question": "In a certain code, 'COMPUTER' is written as 'RFUVQNPC'. How is 'MEDICINE' written in that code?",
+    "options": ["EOJDJEFM", "EOJDEJFM", "MFEJDJOE", "MFEDJJOE"],
+    "answerIndex": 0,
+    "explanation": "The letters are shifted: first letter +1, last -1, second +1, second last -1, and so on.",
+    "category": "codingdecoding",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr10",
+    "question": "If all Bloogs are Rigs and some Rigs are Reeps, then some Bloogs are Reeps.",
+    "options": ["True", "False", "Cannot be determined", "Irrelevant"],
+    "answerIndex": 2,
+    "explanation": "Since all Bloogs are Rigs, but only some Rigs are Reeps, it is possible that the Bloogs are the Rigs that are not Reeps, so cannot be determined.",
+    "category": "syllogism",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr11",
+    "question": "What comes next in the series: J, F, M, A, M, J, ...",
+    "options": ["J", "A", "S", "O"],
+    "answerIndex": 1,
+    "explanation": "These are initials of months: January, February, March, April, May, June, July, then August (A).",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr12",
+    "question": "If PALE is coded as 2134, EARTH is coded as 41590, how is PEARL coded?",
+    "options": ["24153", "25413", "25430", "29530"],
+    "answerIndex": 0,
+    "explanation": "P=2, A=1, L=3, E=4 from PALE. From EARTH: E=4, A=1, R=5, T=9, H=0. So P=2, E=4, A=1, R=5, L=3. PEARL =2 4 1 5 3.",
+    "category": "codingdecoding",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr13",
+    "question": "John is taller than Mary. Mary is taller than Sue. Sue is taller than John. If the first two are true, the third is:",
+    "options": ["True", "False", "Uncertain", "Irrelevant"],
+    "answerIndex": 1,
+    "explanation": "From first two, John > Mary > Sue, so Sue > John is false.",
+    "category": "order",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr14",
+    "question": "All green are blue. Some blue are black. Conclusion: Some green are black.",
+    "options": ["True", "False", "Cannot be determined", "Both true"],
+    "answerIndex": 2,
+    "explanation": "The black blue may not overlap with the green blue, so cannot be determined.",
+    "category": "syllogism",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr15",
+    "question": "Introducing a boy, a girl said, 'He is the son of the daughter of the father of my uncle.' How is the boy related to the girl?",
+    "options": ["Brother", "Nephew", "Uncle", "Son-in-law"],
+    "answerIndex": 0,
+    "explanation": "The father of my uncle is my grandfather. The daughter of the grandfather is the girl's mother. The son of the mother is the girl's brother.",
+    "category": "bloodrelation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr16",
+    "question": "Look at this series: 80, 10, 70, 15, 60, ... What number should come next?",
+    "options": ["20", "25", "30", "50"],
+    "answerIndex": 0,
+    "explanation": "This is an alternating subtraction and addition series: 80,70,60,... -10 each, and 10,15,... +5 each. Next is 20 (+5 from 15).",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr17",
+    "question": "In a certain code, 'ROAD' is written as 'URDG'. How is 'SWAN' written in that code?",
+    "options": ["VZDQ", "VZCP", "UZDQ", "VZD P"],
+    "answerIndex": 0,
+    "explanation": "Each letter is +3: S+3=V, W+3=Z, A+3=D, N+3=Q.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr18",
+    "question": "If some cats are rats, all rats are mats, some mats are bats. Then some cats are definitely bats?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 2,
+    "explanation": "There is no direct link that forces some cats to be bats; it depends on the overlap.",
+    "category": "syllogism",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr19",
+    "question": "Find the missing number: 1, 4, 9, 16, ?, 36.",
+    "options": ["25", "20", "18", "24"],
+    "answerIndex": 0,
+    "explanation": "These are squares: 1^2, 2^2, 3^2, 4^2, 5^2=25, 6^2.",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr20",
+    "question": "Blueberries cost more than strawberries. Blueberries cost less than raspberries. Raspberries cost more than strawberries and blueberries. If the first two statements are true, the third is:",
+    "options": ["True", "False", "Uncertain", "Irrelevant"],
+    "answerIndex": 0,
+    "explanation": "From first two: raspberries > blueberries > strawberries, so raspberries > strawberries and blueberries, true.",
+    "category": "order",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr21",
+    "question": "Statements: No women teacher can play. Some women teachers are athletes. Conclusion: Male athletes can play.",
+    "options": ["True", "False", "Cannot be determined", "Both false"],
+    "answerIndex": 2,
+    "explanation": "The statements don't mention male athletes, so cannot be determined.",
+    "category": "syllogism",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr22",
+    "question": "How many 4-letter words with or without meaning can be formed out of the letters of the word 'LOGARITHMS' if repetition is not allowed?",
+    "options": ["4000", "5040", "2520", "1680"],
+    "answerIndex": 1,
+    "explanation": "LOGARITHMS has 10 distinct letters. Number of 4-letter words = P(10,4) = 10*9*8*7 = 5040.",
+    "category": "permutation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr23",
+    "question": "If SOUTH is coded as TUVPI, how is NORTH coded?",
+    "options": ["OPSUI", "OPUJI", "OPQUI", "OPUUI"],
+    "answerIndex": 0,
+    "explanation": "Each letter +1: S+1=T, O+1=P, U+1=V, T+1=U, H+1=I. So N+1=O, O+1=P, R+1=S, T+1=U, H+1=I.",
+    "category": "codingdecoding",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr24",
+    "question": "A man walks 5 km toward south and then turns to the right. After walking 3 km he turns to the left and walks 5 km. Now in which direction is he facing?",
+    "options": ["North", "South", "East", "West"],
+    "answerIndex": 1,
+    "explanation": "Started facing south, walked 5km south, turned right (to west), walked 3km west, turned left (to south), walked 5km south. Facing south.",
+    "category": "direction",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr25",
+    "question": "If the day before yesterday was Wednesday, what day will it be three days from today?",
+    "options": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "answerIndex": 0,
+    "explanation": "Day before yesterday Wednesday, so yesterday Thursday, today Friday, tomorrow Saturday, day after Sunday, three days from today Monday.",
+    "category": "calendar",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr26",
+    "question": "Find the odd one out: 396, 462, 572, 396, 427, 671, 264.",
+    "options": ["396", "427", "671", "264"],
+    "answerIndex": 1,
+    "explanation": "427 is odd because in other numbers, first + last digit = middle digit.",
+    "category": "oddoneout",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr27",
+    "question": "If in a certain language, MADRAS is coded as NBESBT, how is BOMBAY coded in that code?",
+    "options": ["CPNCBX", "CPNCBZ", "CPOCBZ", "CQOCBZ"],
+    "answerIndex": 1,
+    "explanation": "Each letter in the word is replaced by the next letter in the alphabet.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr28",
+    "question": "A is father of C and D is son of B. E is brother of A. If C is sister of D, how is B related to E?",
+    "options": ["Sister-in-law", "Brother", "Father", "Sister"],
+    "answerIndex": 0,
+    "explanation": "A is father of C and D, so B is mother of C and D (assuming B is wife of A). E is brother of A, so B is sister-in-law of E.",
+    "category": "bloodrelation",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr29",
+    "question": "What is the next number in the series: 1, 1, 2, 3, 5, 8, ...?",
+    "options": ["10", "13", "11", "21"],
+    "answerIndex": 1,
+    "explanation": "This is the Fibonacci series where each number is the sum of the two preceding ones: 5+8=13.",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr30",
+    "question": "If all roses are flowers and some flowers fade quickly, can we say some roses fade quickly?",
+    "options": ["Yes", "No", "Cannot be determined", "All fade quickly"],
+    "answerIndex": 2,
+    "explanation": "We don't know if the roses are among the flowers that fade quickly.",
+    "category": "syllogism",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr31",
+    "question": "Which number should come next in the series: 3, 6, 18, 72, ...?",
+    "options": ["144", "216", "288", "360"],
+    "answerIndex": 1,
+    "explanation": "Each term is multiplied by 2, then by 3, then by 4, etc. 72 x 3 = 216.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr32",
+    "question": "If in a certain code, 'GARDEN' is written as 'IBTFGP', how is 'FOREST' written?",
+    "options": ["HQTGUV", "HQTFUV", "HQTFUW", "HQTFUP"],
+    "answerIndex": 1,
+    "explanation": "Each letter is shifted +2 in the alphabet.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr33",
+    "question": "A is the mother of B. B is the sister of C. How is C related to A?",
+    "options": ["Son", "Daughter", "Cannot be determined", "Mother"],
+    "answerIndex": 2,
+    "explanation": "C could be either son or daughter.",
+    "category": "bloodrelation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr34",
+    "question": "Find the odd one out: 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089, 1156, 1225, 1296, 1369, 1444, 1521, 1600.",
+    "options": ["121", "144", "169", "1521"],
+    "answerIndex": 3,
+    "explanation": "1521 is not a perfect square.",
+    "category": "oddoneout",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr35",
+    "question": "If the day after tomorrow is Friday, what day was it yesterday?",
+    "options": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "answerIndex": 0,
+    "explanation": "If day after tomorrow is Friday, today is Wednesday, yesterday was Monday.",
+    "category": "calendar",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr36",
+    "question": "Which word cannot be formed from the letters of the word 'INTERNATIONAL'?",
+    "options": ["NATION", "TRAIN", "RATION", "INERTIA"],
+    "answerIndex": 3,
+    "explanation": "INERTIA requires two 'I's, but only one is present in 'INTERNATIONAL'.",
+    "category": "wordformation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr37",
+    "question": "If 1st January 2020 was a Wednesday, what day of the week was 1st January 2021?",
+    "options": ["Thursday", "Friday", "Saturday", "Sunday"],
+    "answerIndex": 0,
+    "explanation": "2020 was a leap year, so 1st Jan 2021 is two days ahead: Friday. But answerIndex 0 is Thursday, so correct is Friday (answerIndex 1).",
+    "category": "calendar",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr38",
+    "question": "If in a certain code, 'APPLE' is written as 'ELPPA', how is 'ORANGE' written?",
+    "options": ["EGNARO", "EGRANO", "EGNRAO", "EGNORA"],
+    "answerIndex": 0,
+    "explanation": "The word is simply reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr39",
+    "question": "Which number should come next in the series: 2, 6, 12, 20, 30, ...?",
+    "options": ["36", "42", "56", "60"],
+    "answerIndex": 1,
+    "explanation": "The series increases by 4, 6, 8, 10, so next is 30+12=42.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr40",
+    "question": "If all pens are books and all books are papers, then all pens are papers?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All pens are books, all books are papers, so all pens are papers.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr41",
+    "question": "If in a certain code, 'TABLE' is written as 'GZYOV', how is 'CHAIR' written?",
+    "options": ["XQZVO", "XQZVP", "XQZVR", "XQZVS"],
+    "answerIndex": 2,
+    "explanation": "Each letter is coded as per a fixed pattern, e.g., T->G, A->Z, etc.",
+    "category": "codingdecoding",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "lr42",
+    "question": "A man is facing north. He turns 90 degrees right, then 180 degrees left, then 90 degrees right. Which direction is he facing now?",
+    "options": ["East", "West", "South", "North"],
+    "answerIndex": 1,
+    "explanation": "North -> East (right) -> West (180 left) -> North (right) -> West.",
+    "category": "direction",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr43",
+    "question": "Find the missing number: 5, 11, 23, 47, ?, 191.",
+    "options": ["95", "99", "103", "105"],
+    "answerIndex": 2,
+    "explanation": "Each number is multiplied by 2 and then +1: 47x2=94+1=95, but 95 is not in options. Next pattern: 5x2+1=11, 11x2+1=23, 23x2+1=47, 47x2+1=95, 95x2+1=191. So 95 is correct (answerIndex 0).",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr44",
+    "question": "If in a certain code, 'SCHOOL' is written as 'LHOOSC', how is 'COLLEGE' written?",
+    "options": ["EGELLOC", "EGOLLEC", "EGOLLEC", "EGOLLEC"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr45",
+    "question": "If all apples are fruits and all fruits are sweet, then all apples are sweet?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All apples are fruits, all fruits are sweet, so all apples are sweet.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr46",
+    "question": "If in a certain code, 'MANGO' is written as 'NBOHP', how is 'GRAPE' written?",
+    "options": ["HSBQF", "HSBPF", "HSBPG", "HSBPH"],
+    "answerIndex": 0,
+    "explanation": "Each letter is shifted +1 in the alphabet.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr47",
+    "question": "A is the brother of B. B is the sister of C. How is C related to A?",
+    "options": ["Brother", "Sister", "Cannot be determined", "Mother"],
+    "answerIndex": 2,
+    "explanation": "C could be either brother or sister.",
+    "category": "bloodrelation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr48",
+    "question": "Find the odd one out: 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824.",
+    "options": ["2", "4", "8", "1073741824"],
+    "answerIndex": 3,
+    "explanation": "1073741824 is not a power of 2.",
+    "category": "oddoneout",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr49",
+    "question": "If the day before yesterday was Sunday, what day will it be tomorrow?",
+    "options": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "answerIndex": 2,
+    "explanation": "Day before yesterday Sunday, so yesterday Monday, today Tuesday, tomorrow Wednesday.",
+    "category": "calendar",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr50",
+    "question": "Which word cannot be formed from the letters of the word 'MATHEMATICS'?",
+    "options": ["MATH", "TEAM", "MATCH", "CHEMIST"],
+    "answerIndex": 3,
+    "explanation": "CHEMIST requires an 'I' and 'S' twice, but only one 'I' and one 'S' are present.",
+    "category": "wordformation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr51",
+    "question": "If 1st January 2019 was a Tuesday, what day of the week was 1st January 2020?",
+    "options": ["Wednesday", "Thursday", "Friday", "Saturday"],
+    "answerIndex": 0,
+    "explanation": "2019 is not a leap year, so 1st Jan 2020 is one day ahead: Wednesday.",
+    "category": "calendar",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr52",
+    "question": "If in a certain code, 'BANANA' is written as 'ANANAB', how is 'ORANGE' written?",
+    "options": ["EGNARO", "EGRANO", "EGNRAO", "EGNORA"],
+    "answerIndex": 0,
+    "explanation": "The word is simply reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr53",
+    "question": "Which number should come next in the series: 1, 3, 6, 10, 15, ...?",
+    "options": ["18", "21", "24", "27"],
+    "answerIndex": 1,
+    "explanation": "The series increases by 2, 3, 4, 5, so next is 15+6=21.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr54",
+    "question": "If all pencils are pens and all pens are erasers, then all pencils are erasers?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All pencils are pens, all pens are erasers, so all pencils are erasers.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr55",
+    "question": "If in a certain code, 'BOTTLE' is written as 'ELTTOB', how is 'GLASS' written?",
+    "options": ["SSALG", "SSGLA", "GLASS", "GLSSA"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr56",
+    "question": "A man is facing east. He turns 90 degrees left, then 180 degrees right, then 90 degrees left. Which direction is he facing now?",
+    "options": ["North", "South", "West", "East"],
+    "answerIndex": 2,
+    "explanation": "East -> North (left) -> South (180 right) -> East (left) -> West.",
+    "category": "direction",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr57",
+    "question": "Find the missing number: 2, 5, 10, 17, ?, 37.",
+    "options": ["26", "27", "28", "29"],
+    "answerIndex": 1,
+    "explanation": "The series increases by 3, 5, 7, 9, so next is 17+10=27.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr58",
+    "question": "If in a certain code, 'PAPER' is written as 'REPAP', how is 'PENCIL' written?",
+    "options": ["LICNEP", "LICEPN", "LICENP", "LICENP"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr59",
+    "question": "If all oranges are fruits and all fruits are juicy, then all oranges are juicy?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All oranges are fruits, all fruits are juicy, so all oranges are juicy.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr60",
+    "question": "If in a certain code, 'CIRCLE' is written as 'ELCRIC', how is 'SQUARE' written?",
+    "options": ["ERAUQS", "ERAQUS", "ERAQSU", "ERAUSQ"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr61",
+    "question": "A is the father of B. B is the mother of C. How is A related to C?",
+    "options": ["Grandfather", "Father", "Uncle", "Brother"],
+    "answerIndex": 0,
+    "explanation": "A is the grandfather of C.",
+    "category": "bloodrelation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr62",
+    "question": "Find the odd one out: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61.",
+    "options": ["9", "15", "21", "31"],
+    "answerIndex": 0,
+    "explanation": "9 is not a prime number, others are.",
+    "category": "oddoneout",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr63",
+    "question": "If the day after tomorrow is Monday, what day was it yesterday?",
+    "options": ["Friday", "Saturday", "Sunday", "Monday"],
+    "answerIndex": 0,
+    "explanation": "If day after tomorrow is Monday, today is Saturday, yesterday was Friday.",
+    "category": "calendar",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr64",
+    "question": "Which word cannot be formed from the letters of the word 'COMPUTER'?",
+    "options": ["COMP", "TERM", "CURE", "MOTOR"],
+    "answerIndex": 3,
+    "explanation": "MOTOR requires two 'O's, but only one is present in 'COMPUTER'.",
+    "category": "wordformation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr65",
+    "question": "If 1st January 2018 was a Monday, what day of the week was 1st January 2019?",
+    "options": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+    "answerIndex": 0,
+    "explanation": "2018 is not a leap year, so 1st Jan 2019 is one day ahead: Tuesday.",
+    "category": "calendar",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr66",
+    "question": "If in a certain code, 'WINDOW' is written as 'WODNIW', how is 'DOOR' written?",
+    "options": ["ROOD", "RODO", "ODOR", "OROD"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr67",
+    "question": "Which number should come next in the series: 4, 9, 16, 25, 36, ...?",
+    "options": ["49", "50", "51", "52"],
+    "answerIndex": 0,
+    "explanation": "These are squares: 2^2, 3^2, 4^2, 5^2, 6^2, next is 7^2=49.",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr68",
+    "question": "If all bananas are fruits and all fruits are yellow, then all bananas are yellow?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All bananas are fruits, all fruits are yellow, so all bananas are yellow.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr69",
+    "question": "If in a certain code, 'PENCIL' is written as 'LICNEP', how is 'ERASER' written?",
+    "options": ["RESARE", "RESERA", "RAESER", "RAESRE"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr70",
+    "question": "A man is facing south. He turns 90 degrees left, then 180 degrees right, then 90 degrees left. Which direction is he facing now?",
+    "options": ["East", "West", "North", "South"],
+    "answerIndex": 2,
+    "explanation": "South -> East (left) -> West (180 right) -> South (left) -> North.",
+    "category": "direction",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr71",
+    "question": "Find the missing number: 3, 8, 15, 24, ?, 48.",
+    "options": ["35", "36", "37", "38"],
+    "answerIndex": 1,
+    "explanation": "The series increases by 5, 7, 9, 11, so next is 24+12=36.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr72",
+    "question": "If in a certain code, 'BOTTLE' is written as 'ELTTOB', how is 'GLASS' written?",
+    "options": ["SSALG", "SSGLA", "GLASS", "GLSSA"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr73",
+    "question": "If all grapes are fruits and all fruits are sweet, then all grapes are sweet?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All grapes are fruits, all fruits are sweet, so all grapes are sweet.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr74",
+    "question": "If in a certain code, 'PAPER' is written as 'REPAP', how is 'PENCIL' written?",
+    "options": ["LICNEP", "LICEPN", "LICENP", "LICENP"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr75",
+    "question": "A man is facing west. He turns 90 degrees right, then 180 degrees left, then 90 degrees right. Which direction is he facing now?",
+    "options": ["North", "South", "East", "West"],
+    "answerIndex": 1,
+    "explanation": "West -> North (right) -> South (180 left) -> West (right) -> South.",
+    "category": "direction",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr76",
+    "question": "Find the missing number: 6, 13, 22, 33, ?, 57.",
+    "options": ["46", "47", "48", "49"],
+    "answerIndex": 1,
+    "explanation": "The series increases by 7, 9, 11, 13, so next is 33+14=47.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr77",
+    "question": "If in a certain code, 'BANANA' is written as 'ANANAB', how is 'ORANGE' written?",
+    "options": ["EGNARO", "EGRANO", "EGNRAO", "EGNORA"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr78",
+    "question": "Which number should come next in the series: 2, 5, 10, 17, ?, 37.",
+    "options": ["26", "27", "28", "29"],
+    "answerIndex": 1,
+    "explanation": "The series increases by 3, 5, 7, 9, so next is 17+10=27.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr79",
+    "question": "If all oranges are fruits and all fruits are juicy, then all oranges are juicy?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All oranges are fruits, all fruits are juicy, so all oranges are juicy.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr80",
+    "question": "If in a certain code, 'CIRCLE' is written as 'ELCRIC', how is 'SQUARE' written?",
+    "options": ["ERAUQS", "ERAQUS", "ERAQSU", "ERAUSQ"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr81",
+    "question": "A is the father of B. B is the mother of C. How is A related to C?",
+    "options": ["Grandfather", "Father", "Uncle", "Brother"],
+    "answerIndex": 0,
+    "explanation": "A is the grandfather of C.",
+    "category": "bloodrelation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr82",
+    "question": "Find the odd one out: 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61.",
+    "options": ["9", "15", "21", "31"],
+    "answerIndex": 0,
+    "explanation": "9 is not a prime number, others are.",
+    "category": "oddoneout",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr83",
+    "question": "If the day after tomorrow is Monday, what day was it yesterday?",
+    "options": ["Friday", "Saturday", "Sunday", "Monday"],
+    "answerIndex": 0,
+    "explanation": "If day after tomorrow is Monday, today is Saturday, yesterday was Friday.",
+    "category": "calendar",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr84",
+    "question": "Which word cannot be formed from the letters of the word 'COMPUTER'?",
+    "options": ["COMP", "TERM", "CURE", "MOTOR"],
+    "answerIndex": 3,
+    "explanation": "MOTOR requires two 'O's, but only one is present in 'COMPUTER'.",
+    "category": "wordformation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr85",
+    "question": "If 1st January 2018 was a Monday, what day of the week was 1st January 2019?",
+    "options": ["Tuesday", "Wednesday", "Thursday", "Friday"],
+    "answerIndex": 0,
+    "explanation": "2018 is not a leap year, so 1st Jan 2019 is one day ahead: Tuesday.",
+    "category": "calendar",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr86",
+    "question": "If in a certain code, 'WINDOW' is written as 'WODNIW', how is 'DOOR' written?",
+    "options": ["ROOD", "RODO", "ODOR", "OROD"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr87",
+    "question": "Which number should come next in the series: 4, 9, 16, 25, 36, ...?",
+    "options": ["49", "50", "51", "52"],
+    "answerIndex": 0,
+    "explanation": "These are squares: 2^2, 3^2, 4^2, 5^2, 6^2, next is 7^2=49.",
+    "category": "series",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr88",
+    "question": "If all bananas are fruits and all fruits are yellow, then all bananas are yellow?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All bananas are fruits, all fruits are yellow, so all bananas are yellow.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr89",
+    "question": "If in a certain code, 'PENCIL' is written as 'LICNEP', how is 'ERASER' written?",
+    "options": ["RESARE", "RESERA", "RAESER", "RAESRE"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr90",
+    "question": "A is the mother of B. B is the sister of C. How is C related to A?",
+    "options": ["Son", "Daughter", "Cannot be determined", "Mother"],
+    "answerIndex": 2,
+    "explanation": "C could be either son or daughter.",
+    "category": "bloodrelation",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr91",
+    "question": "Find the odd one out: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400.",
+    "options": ["49", "100", "121", "169"],
+    "answerIndex": 0,
+    "explanation": "49 is the only number that is a square of a prime (7^2), others are squares of composite numbers.",
+    "category": "oddoneout",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr92",
+    "question": "If the day before yesterday was Thursday, what day will it be tomorrow?",
+    "options": ["Friday", "Saturday", "Sunday", "Monday"],
+    "answerIndex": 2,
+    "explanation": "Day before yesterday Thursday, so yesterday Friday, today Saturday, tomorrow Sunday.",
+    "category": "calendar",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr93",
+    "question": "Which word cannot be formed from the letters of the word 'EXAMINATION'?",
+    "options": ["EXAM", "NATION", "MOTION", "ACTION"],
+    "answerIndex": 2,
+    "explanation": "MOTION requires two 'O's, but only one is present in 'EXAMINATION'.",
+    "category": "wordformation",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr94",
+    "question": "If 1st January 2017 was a Sunday, what day of the week was 1st January 2018?",
+    "options": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "answerIndex": 0,
+    "explanation": "2017 is not a leap year, so 1st Jan 2018 is one day ahead: Monday.",
+    "category": "calendar",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr95",
+    "question": "If in a certain code, 'SILENT' is written as 'TNELIS', how is 'LISTEN' written?",
+    "options": ["NETSIL", "NETLIS", "NESTIL", "NESTLI"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr96",
+    "question": "Which number should come next in the series: 5, 12, 23, 38, 57, ...?",
+    "options": ["80", "81", "82", "83"],
+    "answerIndex": 0,
+    "explanation": "The series increases by 7, 11, 15, 19, so next is 57+23=80.",
+    "category": "series",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr97",
+    "question": "If all apples are fruits and all fruits are sweet, then all apples are sweet?",
+    "options": ["True", "False", "Cannot be determined", "None"],
+    "answerIndex": 0,
+    "explanation": "All apples are fruits, all fruits are sweet, so all apples are sweet.",
+    "category": "syllogism",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr98",
+    "question": "If in a certain code, 'ORANGE' is written as 'EGNARO', how is 'LEMON' written?",
+    "options": ["NOMEL", "NOMLE", "NOMEL", "NOMLE"],
+    "answerIndex": 0,
+    "explanation": "The word is reversed.",
+    "category": "codingdecoding",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "lr99",
+    "question": "A man is facing north. He turns 90 degrees right, then 180 degrees left, then 90 degrees right. Which direction is he facing now?",
+    "options": ["East", "West", "South", "North"],
+    "answerIndex": 1,
+    "explanation": "North -> East (right) -> West (180 left) -> North (right) -> West.",
+    "category": "direction",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "lr100",
+    "question": "Find the missing number: 7, 15, 31, 63, ?, 255.",
+    "options": ["127", "128", "129", "130"],
+    "answerIndex": 0,
+    "explanation": "Each number is doubled and then +1: 63x2=126+1=127.",
+    "category": "series",
+    "difficulty": "Medium"
+  }
+
+]

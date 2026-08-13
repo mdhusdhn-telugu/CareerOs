@@ -1,0 +1,272 @@
+[
+  {
+    "id": "va01",
+    "question": "Which word is an antonym for 'benevolent'?",
+    "options": ["Friendly", "Generous", "Malevolent", "Kind"],
+    "answerIndex": 2,
+    "explanation": "Benevolent means well-meaning and kindly. Malevolent means having or showing a wish to do evil to others.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va02",
+    "question": "Choose the word that best completes the sentence: The student was ______ for his excellent academic performance.",
+    "options": ["commended", "commanded", "commented", "committed"],
+    "answerIndex": 0,
+    "explanation": "Commended means to praise formally or officially.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va03",
+    "question": "What is the synonym for 'ubiquitous'?",
+    "options": ["Rare", "Scarce", "Omnipresent", "Unique"],
+    "answerIndex": 2,
+    "explanation": "Ubiquitous means present, appearing, or found everywhere. Omnipresent has the same meaning.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va04",
+    "question": "Identify the error in the sentence: 'The committee have issued its report.'",
+    "options": ["The committee", "have issued", "its report", "No error"],
+    "answerIndex": 1,
+    "explanation": "The word 'committee' is a collective noun and should be treated as a singular entity in this context. Therefore, 'has' should be used instead of 'have'.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va05",
+    "question": "Complete the analogy: 'Doctor is to Hospital as Teacher is to ______.'",
+    "options": ["Student", "Book", "School", "Lesson"],
+    "answerIndex": 2,
+    "explanation": "A doctor's primary place of work is a hospital, just as a teacher's primary place of work is a school.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va06",
+    "question": "Which word is an antonym for 'ephemeral'?",
+    "options": ["Fleeting", "Transient", "Permanent", "Temporary"],
+    "answerIndex": 2,
+    "explanation": "Ephemeral means lasting for a very short time. Permanent means lasting or intended to last indefinitely.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va07",
+    "question": "Choose the word that best completes the sentence: The detective tried to ______ the mystery surrounding the crime.",
+    "options": ["unravel", "ravel", "entangle", "complicate"],
+    "answerIndex": 0,
+    "explanation": "Unravel means to investigate and solve or explain something complicated or puzzling.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va08",
+    "question": "What is the synonym for 'quintessential'?",
+    "options": ["Atypical", "Typical", "Archetypal", "Abnormal"],
+    "answerIndex": 2,
+    "explanation": "Quintessential means representing the most perfect or typical example of a quality or class. Archetypal has a similar meaning.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va09",
+    "question": "Identify the error in the sentence: 'Neither the manager nor the employees was aware of the changes.'",
+    "options": ["Neither the manager", "nor the employees", "was aware", "No error"],
+    "answerIndex": 2,
+    "explanation": "When subjects are joined by 'neither...nor', the verb agrees with the nearer subject. Here, 'employees' is plural, so 'were' should be used instead of 'was'.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va10",
+    "question": "Complete the analogy: 'Pen is to Writer as Brush is to ______.'",
+    "options": ["Painter", "Canvas", "Color", "Art"],
+    "answerIndex": 0,
+    "explanation": "A pen is a tool used by a writer, just as a brush is a tool used by a painter.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va11",
+    "question": "Which word is an antonym for 'diligent'?",
+    "options": ["Industrious", "Lazy", "Hardworking", "Assiduous"],
+    "answerIndex": 1,
+    "explanation": "Diligent means having or showing care and conscientiousness in one's work. Lazy means unwilling to work or use energy.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va12",
+    "question": "Choose the word that best completes the sentence: The new policy was met with widespread ______. ",
+    "options": ["approbation", "disapprobation", "approbation", "apprehension"],
+    "answerIndex": 1,
+    "explanation": "Disapprobation means strong disapproval, typically on moral grounds.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va13",
+    "question": "What is the synonym for 'voracious'?",
+    "options": ["Satisfied", "Insatiable", "Content", "Moderate"],
+    "answerIndex": 1,
+    "explanation": "Voracious means wanting or devouring great quantities of food; having a very eager approach to an activity. Insatiable means impossible to satisfy.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va14",
+    "question": "Identify the error in the sentence: 'She don't like going to the market alone.'",
+    "options": ["She", "don't like", "going to the market", "No error"],
+    "answerIndex": 1,
+    "explanation": "The subject 'She' is third person singular, so the verb should be 'doesn't' instead of 'don't'.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va15",
+    "question": "Complete the analogy: 'Oasis is to Desert as Island is to ______.'",
+    "options": ["Ocean", "Mountain", "Forest", "River"],
+    "answerIndex": 0,
+    "explanation": "An oasis is a fertile spot in a desert, just as an island is a piece of land surrounded by ocean.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va16",
+    "question": "Which word is an antonym for 'magnanimous'?",
+    "options": ["Generous", "Petty", "Noble", "Altruistic"],
+    "answerIndex": 1,
+    "explanation": "Magnanimous means generous or forgiving, especially towards a rival or less powerful person. Petty means of little importance; trivial.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va17",
+    "question": "Choose the word that best completes the sentence: His ______ remarks hurt everyone's feelings.",
+    "options": ["caustic", "mild", "soothing", "pleasant"],
+    "answerIndex": 0,
+    "explanation": "Caustic means sarcastic in a scathing and bitter way.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va18",
+    "question": "What is the synonym for 'aberration'?",
+    "options": ["Normality", "Deviation", "Conformity", "Regularity"],
+    "answerIndex": 1,
+    "explanation": "Aberration means a departure from what is normal, usual, or expected. Deviation has a similar meaning.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va19",
+    "question": "Identify the error in the sentence: 'One of the boys have forgotten his book.'",
+    "options": ["One of the boys", "have forgotten", "his book", "No error"],
+    "answerIndex": 1,
+    "explanation": "'One of the boys' is singular, so the verb should be 'has' instead of 'have'.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va20",
+    "question": "Complete the analogy: 'Lock is to Key as Safe is to ______.'",
+    "options": ["Combination", "Vault", "Money", "Thief"],
+    "answerIndex": 0,
+    "explanation": "A lock is opened by a key, just as a safe is opened by a combination.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va21",
+    "question": "Which word is an antonym for 'gregarious'?",
+    "options": ["Sociable", "Introverted", "Friendly", "Outgoing"],
+    "answerIndex": 1,
+    "explanation": "Gregarious means fond of company; sociable. Introverted means shy and reticent.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va22",
+    "question": "Choose the word that best completes the sentence: The artist's work was so ______ that it left the audience in awe.",
+    "options": ["mundane", "sublime", "ordinary", "commonplace"],
+    "answerIndex": 1,
+    "explanation": "Sublime means of very great excellence or beauty.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va23",
+    "question": "What is the synonym for 'pernicious'?",
+    "options": ["Beneficial", "Harmful", "Helpful", "Wholesome"],
+    "answerIndex": 1,
+    "explanation": "Pernicious means having a harmful effect, especially in a gradual or subtle way. Harmful has a similar meaning.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va24",
+    "question": "Identify the error in the sentence: 'He is one of the best player in the team.'",
+    "options": ["He is", "one of the best", "player in the team", "No error"],
+    "answerIndex": 2,
+    "explanation": "It should be 'players' instead of 'player' to match the plural context after 'one of the best'.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va25",
+    "question": "Complete the analogy: 'Astronomy is to Stars as Botany is to ______.'",
+    "options": ["Animals", "Plants", "Rocks", "Weather"],
+    "answerIndex": 1,
+    "explanation": "Astronomy is the study of stars, just as botany is the study of plants.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va26",
+    "question": "Which word is an antonym for 'loquacious'?",
+    "options": ["Talkative", "Taciturn", "Garrulous", "Verbose"],
+    "answerIndex": 1,
+    "explanation": "Loquacious means tending to talk a great deal; talkative. Taciturn means reserved or uncommunicative in speech; saying little.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va27",
+    "question": "Choose the word that best completes the sentence: The ______ old man lived alone in the mansion.",
+    "options": ["affable", "reclusive", "sociable", "extroverted"],
+    "answerIndex": 1,
+    "explanation": "Reclusive means avoiding the company of other people; solitary.",
+    "category": "verbalability",
+    "difficulty": "Medium"
+  },
+  {
+    "id": "va28",
+    "question": "What is the synonym for 'esoteric'?",
+    "options": ["Obvious", "Arcane", "Clear", "Evident"],
+    "answerIndex": 1,
+    "explanation": "Esoteric means intended for or likely to be understood by only a small number of people with a specialized knowledge or interest. Arcane means understood by few; mysterious or secret.",
+    "category": "verbalability",
+    "difficulty": "Hard"
+  },
+  {
+    "id": "va29",
+    "question": "Identify the error in the sentence: 'The news are good today.'",
+    "options": ["The news", "are good", "today", "No error"],
+    "answerIndex": 1,
+    "explanation": "'News' is an uncountable noun and should take a singular verb 'is' instead of 'are'.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  },
+  {
+    "id": "va30",
+    "question": "Complete the analogy: 'Chef is to Kitchen as Pilot is to ______.'",
+    "options": ["Airplane", "Airport", "Sky", "Flight"],
+    "answerIndex": 0,
+    "explanation": "A chef works in a kitchen, just as a pilot operates an airplane.",
+    "category": "verbalability",
+    "difficulty": "Easy"
+  }
+]

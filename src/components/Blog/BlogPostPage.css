@@ -1,0 +1,72 @@
+/* src/components/Blog/BlogPostPage.css */
+
+.post-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 8rem 2rem 6rem 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.back-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a1a1aa;
+  text-decoration: none;
+  margin-bottom: 4rem;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.back-nav:hover { color: #fff; }
+
+/* Header */
+.post-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid #27272a;
+}
+
+.post-tags {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: #a855f7;
+  font-family: monospace;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.post-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.post-meta {
+  color: #71717a;
+  font-size: 1rem;
+}
+.dot { margin: 0 10px; }
+
+/* Content Body */
+.content-body {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #d4d4d8;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Since we are rendering raw text, let's style the "Markdown" aesthetics */
+/* Note: Ideally use ReactMarkdown library for proper HTML rendering */
+
+.blog-not-found {
+  text-align: center;
+  padding-top: 10rem;
+  color: #fff;
+}

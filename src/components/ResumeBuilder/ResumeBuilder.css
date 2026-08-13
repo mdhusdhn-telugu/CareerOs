@@ -1,0 +1,244 @@
+/* --- ResumeBuilder.css : The "IDE" Look --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --ide-bg: #030303;         /* Deepest black */
+  --ide-panel: #0a0a0a;      /* Panel bg */
+  --ide-border: #27272a;     /* Subtle border */
+  --ide-text: #e4e4e7;       /* Silver text */
+  --ide-text-dim: #71717a;   /* Dimmed text */
+  --ide-accent: #ffffff;     /* White accent */
+  --ide-input-bg: #18181b;   /* Input field bg */
+}
+
+body {
+  background-color: var(--ide-bg);
+  color: var(--ide-text);
+  font-family: 'Inter', sans-serif;
+}
+
+.resume-builder-container { 
+  display: flex; 
+  height: 100vh; 
+  overflow: hidden; 
+  background: var(--ide-bg);
+}
+
+/* --- LEFT SIDEBAR (The "Editor") --- */
+.rb-sidebar { 
+  width: 500px; 
+  padding: 0;
+  background-color: var(--ide-panel); 
+  border-right: 1px solid var(--ide-border); 
+  display: flex; 
+  flex-direction: column; 
+  overflow-y: auto;
+}
+
+/* Custom Scrollbar for Sidebar */
+.rb-sidebar::-webkit-scrollbar { width: 6px; }
+.rb-sidebar::-webkit-scrollbar-track { background: var(--ide-panel); }
+.rb-sidebar::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+
+.rb-header { 
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--ide-border);
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  background: rgba(10, 10, 10, 0.95);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.rb-header h2 { 
+  font-size: 1.1rem; 
+  font-weight: 600; 
+  letter-spacing: -0.02em;
+  color: var(--ide-accent);
+  margin: 0;
+}
+
+/* Template Selector */
+.template-selector { padding: 24px; border-bottom: 1px solid var(--ide-border); }
+.template-selector h3 { font-size: 0.8rem; color: var(--ide-text-dim); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+
+.template-list { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; }
+.template-thumb { 
+  flex: 0 0 auto;
+  padding: 8px 16px; 
+  border: 1px solid var(--ide-border); 
+  border-radius: 4px; 
+  font-size: 0.85rem;
+  color: var(--ide-text-dim);
+  cursor: pointer; 
+  background: var(--ide-input-bg);
+  transition: all 0.2s;
+}
+
+.template-thumb:hover { border-color: #555; color: var(--ide-text); }
+.template-thumb.active { 
+  background: var(--ide-accent); 
+  color: #000; 
+  border-color: var(--ide-accent); 
+  font-weight: 600;
+}
+
+/* Form Area */
+.rb-form { padding: 24px; }
+.rb-form h3 { 
+  font-size: 0.95rem; 
+  color: var(--ide-accent); 
+  margin: 25px 0 15px 0; 
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rb-form h3::before { content: '//'; color: #52525b; font-family: monospace; }
+
+/* Inputs */
+.rb-form input, .rb-form textarea { 
+  width: 100%; 
+  padding: 12px; 
+  margin-bottom: 12px; 
+  border-radius: 4px; 
+  border: 1px solid var(--ide-border); 
+  background-color: var(--ide-input-bg); 
+  color: var(--ide-text); 
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.rb-form input:focus, .rb-form textarea:focus { 
+  outline: none; 
+  border-color: #666; 
+  background-color: #202023;
+}
+
+.rb-form input::placeholder, .rb-form textarea::placeholder { color: #52525b; }
+
+/* Group Cards */
+.rb-form .form-group { 
+  padding: 16px; 
+  border: 1px solid var(--ide-border); 
+  border-radius: 6px; 
+  margin-bottom: 16px; 
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Buttons */
+.auth-button { background: transparent; border: 1px solid var(--ide-border); color: var(--ide-text); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; }
+.auth-button:hover { background: #222; }
+
+.add-btn { 
+  width: 100%; padding: 10px; border: 1px dashed var(--ide-border); 
+  background: transparent; color: var(--ide-text-dim); border-radius: 4px; cursor: pointer; font-size: 0.85rem; 
+}
+.add-btn:hover { border-color: #666; color: var(--ide-text); background: rgba(255,255,255,0.03); }
+
+.remove-btn { 
+  background: transparent; border: none; color: #ef4444; 
+  font-size: 0.8rem; cursor: pointer; opacity: 0.7; padding: 0;
+  text-decoration: underline; margin-top: 5px;
+}
+.remove-btn:hover { opacity: 1; }
+
+.save-btn { 
+  width: 100%; padding: 14px; background: var(--ide-accent); color: #000; 
+  font-weight: 600; border: none; border-radius: 4px; cursor: pointer; margin-top: 30px; 
+}
+.save-btn:hover { background: #d4d4d4; }
+
+/* --- AI BUTTONS (The "System Command" Look) --- */
+.ai-generate-btn {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: linear-gradient(90deg, #18181b 0%, #27272a 100%);
+  border: 1px solid #3f3f46;
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.ai-generate-btn:hover:not(:disabled) {
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.ai-generate-btn.small {
+  margin-top: 8px;
+  margin-bottom: 0;
+  padding: 8px;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 1px solid var(--ide-border);
+}
+
+.ai-generate-btn:disabled { opacity: 0.5; cursor: wait; }
+
+/* --- RIGHT PREVIEW AREA (The "Desk") --- */
+.rb-preview-area { 
+  flex-grow: 1; 
+  background-color: #000; 
+  background-image: radial-gradient(#222 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 40px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  position: relative;
+}
+
+.rb-preview-actions { 
+  position: absolute; top: 20px; right: 20px; z-index: 50; 
+}
+
+.download-btn { 
+  background: #ffffff; color: #000; border: none; padding: 10px 20px; 
+  border-radius: 4px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+}
+.download-btn:hover { background: #e4e4e7; }
+
+.resume-wrapper { 
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  transform-origin: top center;
+  margin-top: 20px;
+}
+
+/* Zoom Controls */
+.rb-zoom-controls { 
+  position: fixed; bottom: 30px; right: 30px; 
+  background: #18181b; border: 1px solid #333; 
+  padding: 6px 12px; border-radius: 20px; 
+  display: flex; align-items: center; gap: 10px; color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.rb-zoom-controls button { 
+  background: transparent; border: none; color: #fff; font-size: 1.2rem; cursor: pointer; 
+}
+.rb-zoom-controls button:hover { color: #a1a1aa; }
+
+/* --- Resume Template Resets --- */
+/* Ensure templates render correctly on white paper */
+.resume-preview {
+  background: white; 
+  color: #333; 
+  width: 210mm; 
+  min-height: 297mm; 
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.loading-container { color: #fff; font-family: monospace; }
+.login-prompt { background: var(--ide-bg); color: #fff; }
