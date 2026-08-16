@@ -213,3 +213,37 @@
   .submit-exam-btn { width: auto; padding: 8px 20px; }
   .aptitude-hero { padding-top: 4rem; }
 }
+
+/* --- NON-VERBAL REASONING FIGURES (added for Step 6) --- */
+
+.question-figure-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #050505;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.question-figure-box svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.option-card {
+  min-height: 56px;
+}
+
+.opt-figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.opt-figure svg {
+  width: 64px;
+  height: 64px;
+}

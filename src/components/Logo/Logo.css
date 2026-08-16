@@ -1,0 +1,60 @@
+/* src/components/Logo/Logo.css */
+/* Shared by Layout.jsx (protected navbar) and Navbar.jsx (public navbar) —
+   previously this exact block was duplicated in Layout.css and Navbar.css. */
+
+@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&family=Seaweed+Script&display=swap');
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.rocket-icon {
+  width: 28px;
+  height: 28px;
+  color: #ab47bc;
+  margin-right: 8px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(171, 71, 188, 0.5));
+}
+
+.logo-link:hover .rocket-icon {
+  transform: translateY(-3px) rotate(-10deg);
+  color: #6a1b9a;
+}
+
+.code-logo, .astra-logo {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.logo-link:hover .code-logo,
+.logo-link:hover .astra-logo {
+  transform: scale(1.02);
+}
+
+.code-logo {
+  font-family: 'WindSong', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin-right: 5px;
+  background: linear-gradient(45deg, #42a5f5, #ab47bc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.astra-logo {
+  font-family: 'Seaweed Script', sans-serif;
+  font-size: 24px;
+  background: linear-gradient(45deg, #ff7043, #f06292);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

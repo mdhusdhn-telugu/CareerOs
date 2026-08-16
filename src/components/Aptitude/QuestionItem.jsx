@@ -5,7 +5,7 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { motion } from 'framer-motion';
 
 const QuestionItem = React.memo(({ question, questionNumber, userAnswer, isRevealed, onSelectOption }) => {
-  const { question: questionText, options, answerIndex, explanation } = question;
+  const { question: questionText, options, answerIndex, explanation, questionFigure, optionFigures } = question;
 
   const getOptionClass = (index) => {
     if (isRevealed) {
@@ -27,6 +27,14 @@ const QuestionItem = React.memo(({ question, questionNumber, userAnswer, isRevea
             <h3 className="q-text">{questionText}</h3>
         </div>
 
+        {/* Optional visual figure for the question stem (non-verbal reasoning) */}
+        {questionFigure && (
+          <div
+            className="question-figure-box"
+            dangerouslySetInnerHTML={{ __html: questionFigure }}
+          />
+        )}
+
         {/* Options Grid */}
         <div className="options-grid">
           {options.map((option, index) => (
@@ -41,7 +49,15 @@ const QuestionItem = React.memo(({ question, questionNumber, userAnswer, isRevea
                     {isRevealed && index === userAnswer && index !== answerIndex && <HighlightOffIcon className="status-icon" />}
                     {!isRevealed && <span className="opt-letter">{String.fromCharCode(65 + index)}</span>}
                 </div>
-                <span className="opt-text">{option}</span>
+
+                {optionFigures && optionFigures[index] ? (
+                  <span
+                    className="opt-figure"
+                    dangerouslySetInnerHTML={{ __html: optionFigures[index] }}
+                  />
+                ) : (
+                  <span className="opt-text">{option}</span>
+                )}
             </div>
           ))}
         </div>

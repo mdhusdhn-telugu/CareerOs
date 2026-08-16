@@ -1,0 +1,79 @@
+/* TemplateClassic.css — Traditional, centered, conservative-industry safe */
+
+.template-4 {
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #1f2937;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 10.5pt;
+  line-height: 1.5;
+  padding: 16mm;
+  box-sizing: border-box;
+}
+
+.template-4 .resume-header { text-align: center; margin-bottom: 0.7rem; }
+.template-4 .resume-header h1 { font-size: 21pt; font-weight: 700; margin: 0; letter-spacing: 0.02em; text-transform: uppercase; }
+.template-4 .resume-title { background: none; -webkit-background-clip: unset; background-clip: unset; -webkit-text-fill-color: currentColor; font-family: 'Inter', sans-serif; font-size: 10.5pt; color: #4b5563; margin: 0.2rem 0 0.4rem; font-style: italic; }
+
+.template-4 .contact-info {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 8.75pt;
+  color: #4b5563;
+}
+.template-4 .contact-info > *:not(:last-child)::after { content: '—'; margin-left: 0.5rem; }
+
+.template-4 .resume-body { border-top: 1.5pt solid #1f2937; padding-top: 0.6rem; }
+
+.template-4 .section-title {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: 10.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0.7rem 0 0.4rem;
+}
+
+.template-4 .skills-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+.template-4 .skills-list li { font-size: 9.25pt; }
+
+.template-4 .job { margin-bottom: 0.6rem; }
+.template-4 .job h3 { font-size: 11pt; font-weight: 700; margin: 0; text-align: center; }
+.template-4 .job-subheader { display: flex; justify-content: space-between; font-family: 'Inter', sans-serif; margin: 0.1rem 0 0.25rem; }
+.template-4 .job-subheader h4 { font-size: 9.75pt; font-style: italic; font-weight: 500; margin: 0; }
+.template-4 .job-subheader span { font-size: 8.5pt; color: #6b7280; }
+.template-4 .job p { font-size: 9.5pt; margin: 0; }
+
+.template-4 .school { margin-bottom: 0.5rem; text-align: center; }
+.template-4 .school h3 { font-size: 10.5pt; font-weight: 700; margin: 0; }
+.template-4 .school h4 { font-size: 9.5pt; font-weight: 500; margin: 0.1rem 0; font-style: italic; }
+.template-4 .school span { font-family: 'Inter', sans-serif; font-size: 8.5pt; color: #6b7280; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  .template-4 { width: 210mm; padding: 15mm; box-shadow: none; }
+  .job, .school { break-inside: avoid; }
+}
+@media screen {
+  .template-4 { box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+}
+@media (max-width: 820px) {
+  .template-4 { width: 100%; padding: 1.5rem; }
+}
+
+.template-4 .contact-info a { color: #1f2937; text-decoration: underline; }

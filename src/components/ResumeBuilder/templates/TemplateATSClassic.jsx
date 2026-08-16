@@ -1,4 +1,7 @@
 import React from 'react';
+import './TemplateATSClassic.css';
+
+const normalizeUrl = (url) => (url && !/^https?:\/\//i.test(url) ? `https://${url}` : url);
 
 const TemplateATSClassic = ({ data }) => {
   const renderDescription = (text) => {
@@ -14,8 +17,8 @@ const TemplateATSClassic = ({ data }) => {
         <div className="contact-info">
           <span>{data.location}</span>
           <span>{data.phone}</span>
-          <span>{data.email}</span>
-          <span>{data.linkedin}</span>
+          {data.email && <a href={`mailto:${data.email}`}>{data.email}</a>}
+          {data.linkedin && <a href={normalizeUrl(data.linkedin)} target="_blank" rel="noopener noreferrer">LinkedIn</a>}
         </div>
         <p className="summary-statement">{data.summary}</p>
       </header>
@@ -51,6 +54,22 @@ const TemplateATSClassic = ({ data }) => {
           </div>
         </section>
 
+        {data.projects && data.projects.length > 0 && (
+          <section className="resume-section">
+            <h2 className="section-title">Projects</h2>
+            <div className="section-content">
+              {data.projects.map((proj, i) => (
+                <div key={i} className="job">
+                  <div className="job-header">
+                    <h3><strong>{proj.name}</strong></h3>
+                  </div>
+                  <ul>{renderDescription(proj.description)}</ul>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="resume-section">
           <h2 className="section-title">Skills</h2>
           <div className="section-content">
@@ -61,6 +80,30 @@ const TemplateATSClassic = ({ data }) => {
             </ul>
           </div>
         </section>
+
+        {data.languages && data.languages.length > 0 && (
+          <section className="resume-section">
+            <h2 className="section-title">Languages</h2>
+            <div className="section-content">
+              <ul className="skills-list">
+                {data.languages.map((lang, i) => (
+                  <li key={i}>{lang}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        )}
+
+        {data.certificates && data.certificates.length > 0 && (
+          <section className="resume-section">
+            <h2 className="section-title">Certifications</h2>
+            <div className="section-content">
+              {data.certificates.map((cert, i) => (
+                <p key={i} className="details">{cert.name}</p>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

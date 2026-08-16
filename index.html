@@ -4,27 +4,45 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CodeAstra</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+    <title>CodeAstra — Your All-in-One Career Preparation Platform</title>
+    <meta
+      name="description"
+      content="CodeAstra helps you prepare for tech careers end-to-end: AI-powered resume building, an online compiler, aptitude practice, mock interview prep, a portfolio builder, typing tests, and curated job postings — all in one place."
     />
+    <meta name="author" content="Madhu Sudhan Telugu" />
+    <meta name="theme-color" content="#030303" />
+
+    <!-- Speed up the handshake to Google Fonts before the stylesheet request fires -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+
+    <!--
+      Font Awesome CDN disabled on purpose: react-icons/fa is already imported
+      in ResumeBuilder.jsx and is tree-shaken by Vite, so the icons you actually
+      use ship in your JS bundle instead of pulling the entire FA library (x3)
+      from a CDN on every page load.
+
+      Left here (commented out, so zero request/perf cost) as a fast rollback
+      in case some other component outside this project relies on FA class
+      names. If you confirm nothing needs it, delete this block entirely.
+
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+    -->
   </head>
   <body>
     <div id="root"></div>

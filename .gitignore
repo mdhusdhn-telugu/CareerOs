@@ -35,3 +35,8 @@ dist-ssr
 .netlify
 /netlify/functions/node_modules
 ```.env
+
+# Environment files
+.env
+.env.*
+!.env.example

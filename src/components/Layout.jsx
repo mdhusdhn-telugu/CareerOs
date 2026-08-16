@@ -5,6 +5,7 @@ import { IoRocketOutline, IoMenu, IoClose } from 'react-icons/io5'; // Restored 
 import Footer from './Footer/Footer';
 import { useAuth } from '../context/AuthContext';
 import './Layout.css';
+import Logo from './Logo/Logo';
 
 const navItems = [
   { path: '/resume', label: 'Resume' },
@@ -34,11 +35,7 @@ const Layout = () => {
       <header className={`navbar ${isMobileMenuOpen ? 'nav-open' : ''}`}>
         
         {/* LEFT SIDE: Original Logo Preserved */}
-        <Link to="/" className="logo-link">
-          <IoRocketOutline className="rocket-icon" /> 
-          <span className="code-logo">Code</span>
-          <span className="astra-logo">Astra</span>
-        </Link>
+        <Logo />
 
         {/* RIGHT SIDE: Navigation + Profile + Toggle */}
         <div className="nav-right-group">

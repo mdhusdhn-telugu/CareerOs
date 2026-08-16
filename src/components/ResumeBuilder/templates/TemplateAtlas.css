@@ -1,0 +1,141 @@
+/* TemplateAtlas.css — plain, information-dense, ATS-first (modeled on a
+   real resume format proven to work with actual recruiters) */
+
+.template-atlas {
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #111111;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.42;
+  padding: 14mm 15mm;
+  box-sizing: border-box;
+}
+
+.atlas-header {
+  text-align: center;
+  margin-bottom: 0.55rem;
+}
+
+.atlas-header h1 {
+  font-size: 16.5pt;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.01em;
+}
+
+.atlas-contact {
+  font-size: 8.75pt;
+  color: #1f1f1f;
+}
+.atlas-contact .atlas-sep {
+  margin: 0 0.4rem;
+  color: #999;
+}
+
+.atlas-section {
+  margin-bottom: 0.65rem;
+}
+.atlas-section:last-child { margin-bottom: 0; }
+
+.atlas-section h2 {
+  font-size: 10.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 0.1rem;
+  margin: 0 0 0.35rem;
+}
+
+.atlas-section > p {
+  font-size: 9.5pt;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.atlas-plain-list {
+  font-size: 9.5pt;
+  margin: 0;
+  color: #1a1a1a;
+}
+
+.atlas-entry { margin-bottom: 0.5rem; }
+.atlas-entry:last-child { margin-bottom: 0; }
+
+.atlas-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.atlas-entry-head h3 {
+  font-size: 9.75pt;
+  font-weight: 700;
+  margin: 0;
+}
+.atlas-dates {
+  font-size: 8.5pt;
+  color: #333333;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.atlas-entry ul {
+  margin: 0.15rem 0 0;
+  padding-left: 1.1rem;
+}
+.atlas-entry li {
+  font-size: 9pt;
+  margin-bottom: 0.1rem;
+}
+
+.atlas-edu-details {
+  font-size: 8.75pt;
+  margin: 0.1rem 0 0;
+  color: #333333;
+}
+
+.atlas-cert-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.atlas-cert-list li {
+  font-size: 9pt;
+  margin-bottom: 0.1rem;
+}
+
+@media print {
+  @page { size: A4; margin: 0; }
+  .template-atlas { width: 210mm; padding: 13mm 14mm; box-shadow: none; }
+  .atlas-entry, .atlas-section { break-inside: avoid; }
+}
+@media screen {
+  .template-atlas { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+}
+@media (max-width: 820px) {
+  .template-atlas { width: 100%; padding: 1.5rem; }
+  .atlas-contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem; }
+}
+
+/* Nested sub-entries (e.g. a capstone project nested under a training program) */
+.atlas-subentries {
+  margin: 0.2rem 0 0 0.9rem;
+  padding-left: 0.6rem;
+  border-left: 1.5px solid #d0d0d0;
+}
+.atlas-subentry { margin-bottom: 0.3rem; }
+.atlas-subentry:last-child { margin-bottom: 0; }
+.atlas-subentry h4 {
+  font-size: 9.25pt;
+  font-weight: 600;
+  margin: 0 0 0.1rem;
+  color: #1a1a1a;
+}
+.atlas-subentry ul { margin: 0.1rem 0 0; padding-left: 1rem; }
+.atlas-subentry li { font-size: 8.75pt; margin-bottom: 0.08rem; }
+
+.atlas-contact a { color: #111111; text-decoration: underline; }
+.atlas-contact a:hover { color: #333333; }

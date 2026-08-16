@@ -1,0 +1,137 @@
+/* TemplateStalwart.css — Classic Serif Professional */
+
+.template-1 {
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.45;
+  padding: 15mm 16mm;
+  box-sizing: border-box;
+}
+
+.template-1 .resume-header {
+  text-align: center;
+  border-bottom: 2px solid #7c2d3a;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.template-1 .resume-header h1 {
+  font-family: 'Georgia', 'Source Serif 4', serif;
+  font-size: 22pt;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+.template-1 .resume-title {background: none; -webkit-background-clip: unset; background-clip: unset; -webkit-text-fill-color: currentColor;
+  margin: 0.15rem 0 0.35rem;
+  font-size: 11pt;
+  color: #7c2d3a;
+  font-weight: 600;
+}
+
+.template-1 .contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  font-size: 8.75pt;
+  color: #4b5563;
+}
+.template-1 .contact-info > *:not(:last-child)::after {
+  content: '•';
+  margin-left: 0.6rem;
+  color: #9ca3af;
+}
+
+.template-1 .resume-section { margin-bottom: 0.75rem; }
+.template-1 .resume-section:last-child { margin-bottom: 0; }
+
+.template-1 .resume-section > h2 {
+  font-family: 'Georgia', 'Source Serif 4', serif;
+  font-size: 11.5pt;
+  font-weight: 700;
+  color: #7c2d3a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 0.2rem;
+  margin: 0 0 0.45rem;
+}
+
+.template-1 .resume-section > p { font-size: 10pt; margin: 0; color: #2b2b2b; }
+
+.template-1 .skills ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+}
+.template-1 .skills li {
+  background: #f3ede9;
+  border: 1px solid #e4d8d2;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  font-size: 8.75pt;
+  font-weight: 600;
+}
+
+.template-1 .job, .template-1 .school { margin-bottom: 0.55rem; }
+.template-1 .job:last-child, .template-1 .school:last-child { margin-bottom: 0; }
+
+.template-1 .job-header, .template-1 .school-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.template-1 .job-header h3, .template-1 .school-header h3 { font-size: 10.25pt; font-weight: 700; margin: 0; }
+.template-1 .job-header span, .template-1 .school-header span { font-size: 8.5pt; color: #6b7280; white-space: nowrap; }
+
+.template-1 .job ul { margin: 0.2rem 0 0; padding-left: 1.05rem; }
+.template-1 .job li { font-size: 9.25pt; margin-bottom: 0.15rem; }
+
+.template-1 .school p { margin: 0.15rem 0 0; font-size: 9pt; color: #4b5563; }
+
+.template-1 .activities p { font-size: 9.5pt; color: #2b2b2b; margin: 0; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  .template-1 { width: 210mm; padding: 14mm 15mm; box-shadow: none; }
+  .job, .school, .resume-section { break-inside: avoid; }
+}
+@media screen {
+  .template-1 { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+}
+@media (max-width: 820px) {
+  .template-1 { width: 100%; padding: 1.5rem; }
+  .contact-info { justify-content: flex-start; }
+}
+
+/* Languages section reuses the same chip look as Core Skills */
+.template-1 .languages ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+}
+.template-1 .languages li {
+  background: #f3ede9;
+  border: 1px solid #e4d8d2;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  font-size: 8.75pt;
+  font-weight: 600;
+}
+
+.template-1 .contact-info a { color: #7c2d3a; text-decoration: underline; }
+.template-1 .contact-info a:hover { color: #5a2029; }

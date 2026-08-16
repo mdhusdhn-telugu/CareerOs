@@ -1,0 +1,85 @@
+/* TemplateATSClassic.css — Maximum ATS-Safety, minimal decoration on purpose */
+
+.template-2 {
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11pt;
+  line-height: 1.4;
+  padding: 16mm;
+  box-sizing: border-box;
+}
+
+.template-2 .resume-header {
+  border-bottom: 1.5pt solid #000000;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+.template-2 .resume-header h1 {
+  font-size: 19pt;
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+}
+
+.template-2 .contact-info {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 9.5pt;
+  margin-bottom: 0.3rem;
+}
+.template-2 .contact-info > *:not(:last-child)::after { content: '|'; margin-left: 0.5rem; }
+
+.template-2 .summary-statement { font-size: 10pt; margin: 0.3rem 0 0; }
+
+.template-2 .section-title {
+  font-size: 12pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1pt solid #000000;
+  padding-bottom: 0.15rem;
+  margin: 0.7rem 0 0.4rem;
+}
+
+.template-2 .school, .template-2 .job { margin-bottom: 0.5rem; }
+.template-2 .school:last-child, .template-2 .job:last-child { margin-bottom: 0; }
+
+.template-2 .school-header, .template-2 .job-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.template-2 .school-header h3, .template-2 .job-header h3 { font-size: 10.5pt; font-weight: 400; margin: 0; }
+.template-2 .school-header span, .template-2 .job-header span { font-size: 9.5pt; white-space: nowrap; }
+
+.template-2 .details { font-size: 9.5pt; margin: 0.15rem 0 0; }
+
+.template-2 .job ul { margin: 0.2rem 0 0; padding-left: 1.1rem; }
+.template-2 .job li { font-size: 9.75pt; margin-bottom: 0.15rem; }
+
+.template-2 .skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.template-2 .skills-list li { font-size: 9.75pt; }
+.template-2 .skills-list li:not(:last-child)::after { content: ', '; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  .template-2 { width: 210mm; padding: 15mm; box-shadow: none; }
+  .job, .school { break-inside: avoid; }
+}
+@media screen {
+  .template-2 { box-shadow: 0 4px 24px rgba(0,0,0,0.1); }
+}
+@media (max-width: 820px) {
+  .template-2 { width: 100%; padding: 1.5rem; }
+}
+
+.template-2 .contact-info a { color: #000000; text-decoration: underline; }

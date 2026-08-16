@@ -1,3 +1,8 @@
+/* Import Fonts (Logo Fonts + Modern UI Font) */
+@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&family=Seaweed+Script&family=Inter:wght@400;500;600&display=swap');
+
+
+
 /* src/components/Layout.css */
 
 /* --- 1. Global & Variables --- */
@@ -10,9 +15,6 @@
   --glass-border: 1px solid rgba(255, 255, 255, 0.08);
   --font-ui: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-
-/* Import Fonts (Logo Fonts + Modern UI Font) */
-@import url('https://fonts.googleapis.com/css2?family=WindSong:wght@700&family=Seaweed+Script&family=Inter:wght@400;500;600&display=swap');
 
 /* --- 2. Navbar Container --- */
 .navbar {
@@ -32,62 +34,6 @@
   border-bottom: var(--glass-border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   transition: padding 0.3s ease;
-}
-
-/* --- 3. ORIGINAL LOGO STYLES (PRESERVED) --- */
-.logo-link {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit; 
-  flex-shrink: 0; /* Prevents logo from squishing */
-}
-
-.rocket-icon {
-  width: 28px;
-  height: 28px;
-  color: #ab47bc; 
-  margin-right: 8px;
-  transition: transform 0.3s ease, color 0.3s ease;
-  filter: drop-shadow(0 0 5px rgba(171, 71, 188, 0.5));
-}
-
-.logo-link:hover .rocket-icon {
-  transform: translateY(-3px) rotate(-10deg);
-  color: #6a1b9a;
-}
-
-.code-logo, .astra-logo {
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.1); 
-  transition: all 0.3s ease;
-}
-
-.logo-link:hover .code-logo,
-.logo-link:hover .astra-logo {
-  transform: scale(1.02);
-}
-
-.code-logo {
-  font-family: 'WindSong', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  margin-right: 5px;
-  background: linear-gradient(45deg, #42a5f5, #ab47bc);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-.astra-logo {
-  font-family: 'Seaweed Script', sans-serif;
-  font-size: 24px;
-  background: linear-gradient(45deg, #ff7043, #f06292);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
 }
 
 /* --- 4. RIGHT SIDE GROUPING --- */

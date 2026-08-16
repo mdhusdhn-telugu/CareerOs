@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './ResumeScoreCheck.css';
 import { auth, db } from '../../firebase/firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, orderBy, getDocs } from 'firebase/firestore';
+
 
 const ResumeScoreCheck = () => {
   const [user, setUser] = useState(null);
@@ -22,7 +23,10 @@ const ResumeScoreCheck = () => {
       if (currentUser) {
         setUser(currentUser);
         // Fetch resumes from Firestore
-        const q = query(collection(db, "resumes"), where("userId", "==", currentUser.uid));
+const q = query(
+  collection(db, "users", currentUser.uid, "resumes"),
+  orderBy("updatedAt", "desc")
+);
         const querySnapshot = await getDocs(q);
         const userResumes = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setResumes(userResumes);

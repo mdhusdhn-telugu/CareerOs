@@ -2,7 +2,7 @@ import React from 'react';
 import { useAuth } from '../../context/AuthContext'; // Adjust path as needed
 import { IoRocketOutline } from 'react-icons/io5';
 import './Navbar.css'; // We will create this CSS file next
-
+import Logo from '../Logo/Logo';
 const Navbar = () => {
   const { user } = useAuth();
 
@@ -11,11 +11,7 @@ const Navbar = () => {
 
   return (
     <header className="navbar">
-      <a href="/" className="logo-link">
-        <IoRocketOutline className="rocket-icon" />
-        <span className="code-logo">Code</span>
-        <span className="astra-logo">Astra</span>
-      </a>
+      <Logo />
       {user ? (
         <a href="/profile" className="cta-button premium">{profileText}</a>
       ) : (

@@ -1,32 +1,29 @@
 // src/components/ResumeBuilder/utils/geminiGenerator.js
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 
 const API_KEY =
   import.meta.env.VITE_GEMINI_API_KEY ||
   import.meta.env.GEMINI_API_KEY || // optional fallback
   "";
 
-let model = null;
+let ai = null;
 
 if (!API_KEY) {
   console.warn(
     "[Gemini] No API key found. Set VITE_GEMINI_API_KEY in your .env file."
   );
 } else {
- const genAI = new GoogleGenerativeAI(API_KEY);
-
-model = genAI.getGenerativeModel({
-  model: "gemini-pro",   // stable text model for v1beta
-});
-
+  ai = new GoogleGenAI({ apiKey: API_KEY });
 }
+
+const MODEL = "gemini-2.0-flash"; // matches Programming/api.js — one model, one SDK, everywhere
 
 /**
  * type: 'summary' | 'experience' | 'project' | 'skills'
  * payload: values from the form
  */
 export async function generateResumeContent(type, payload = {}) {
-  if (!model) {
+  if (!ai) {
     alert(
       "AI is not configured. Please set VITE_GEMINI_API_KEY in your .env and restart the dev server."
     );
@@ -99,11 +96,12 @@ Output ONLY the comma-separated list, nothing else.
   }
 
   try {
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text()?.trim() || "";
-
-    return text;
+    const response = await ai.models.generateContent({
+      model: MODEL,
+      contents: prompt,
+    });
+    const text = typeof response.text === "function" ? response.text() : response.text;
+    return (text || "").trim();
   } catch (err) {
     console.error("[Gemini] Error while generating resume content:", err);
     alert("AI generation failed. Check console for details.");

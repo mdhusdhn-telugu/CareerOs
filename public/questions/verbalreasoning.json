@@ -109,10 +109,10 @@
   },
   {
     "id": "vr13",
-    "question": "If 'A $ B' means A is the mother of B, 'A # B' means A is the brother of B, 'A @ B' means A is the wife of B. Which means P is the grandson of Q?",
-    "options": ["Q $ R @ P # S", "Q $ R # S @ P", "Q @ R $ S # P", "Q # R $ S @ P"],
+    "question": "If 'A $ B' means A is the mother of B, 'A # B' means A is the brother of B, and 'A @ B' means A is the father of B, which of the following means P is the grandson of Q?",
+    "options": ["Q $ R # S @ P", "Q @ R # S @ P", "Q # R $ S @ P", "Q $ R @ S # P"],
     "answerIndex": 1,
-    "explanation": "Q $ R → Q mother of R. R # S → R brother of S. S @ P → S wife of P. So P son of S, grandson of Q? Wait, S is child of Q since R is, but R brother of S, Q mother of R so of S. P is husband of S? No: S @ P means S wife of P, so P husband of S. That's not. Wait, to have grandson: Need Q mother of someone who is parent of P. Adjust: For answer 1: Q $ R # S @ P: Q mother R, R brother S, S wife P, so P husband of S. No grandson. Wait, perhaps different. Standard: Let's say for correct: Suppose Q $ R @ P # S: Q mother R, R wife P, P brother S, so S son? No. Let's make explanation for 1 as correct, but perhaps it's P child. Wait, the symbols don't have child directly, but son is reverse. But to match, perhaps the answer is where P is son of someone who is child of Q.",
+    "explanation": "Q @ R → Q is the father of R. R # S → R is the brother of S (so S is also Q's child). S @ P → S is the father of P. So Q is the father of S, and S is the father of P, making Q the paternal grandfather of P — i.e., P is the grandson of Q.",
     "category": "verbalreasoning",
     "difficulty": "Hard"
   },
@@ -244,10 +244,10 @@
   },
   {
     "id": "vr28",
-    "question": "If 'P = Q' means P is the father of Q, 'P ≠ Q' means P is the mother of Q, 'P ÷ Q' means P is the brother of Q. Which means A is the maternal grandmother of C?",
-    "options": ["A ≠ B = C", "A = B ≠ C", "A ÷ B = C", "A ≠ B ÷ C"],
+    "question": "If 'P = Q' means P is the father of Q, 'P ≠ Q' means P is the mother of Q, and 'P ÷ Q' means P is the sister of Q, which of the following means A is the maternal grandmother of C?",
+    "options": ["A ≠ B ≠ C", "A = B ≠ C", "A ÷ B = C", "A ≠ B ÷ C"],
     "answerIndex": 0,
-    "explanation": "A ≠ B → A mother of B. B = C → B father of C. So A maternal grandmother if B is father, but maternal is mother's mother. Wait, if B is father, A is paternal grandmother. Wait, to make maternal, need A mother of D, D mother of C. But options have only two. Perhaps A ≠ B = C: A mother of B, B father of C, so A paternal grandmother. Perhaps adjust for maternal. If B = C means B father C, but to have maternal, perhaps if B ≠ C means B mother C, then A ≠ B ≠ C: but option not. Let's assume for 0 it's correct, but perhaps the symbols for mother would make it.",
+    "explanation": "A ≠ B → A is the mother of B. B ≠ C → B is the mother of C. Since A is B's mother and B is C's mother, A is the mother of C's mother — the maternal grandmother of C.",
     "category": "verbalreasoning",
     "difficulty": "Hard"
   },

@@ -1,10 +1,17 @@
 [
   {
     "id": "nv01",
-    "question": "Which figure completes the pattern of a square rotating 45 degrees clockwise in each step?",
+    "question": "The figure below shows a square that alternates with a diamond (a square rotated 45°) at each step. Which option continues the sequence?",
+    "questionFigure": "<svg viewBox='0 0 380 90' xmlns='http://www.w3.org/2000/svg'><rect x='10' y='15' width='60' height='60' fill='none' stroke='#e4e4e7' stroke-width='4'/><text x='90' y='55' fill='#71717a' font-size='24'>&#8594;</text><rect x='130' y='15' width='60' height='60' fill='none' stroke='#e4e4e7' stroke-width='4' transform='rotate(45 160 45)'/><text x='210' y='55' fill='#71717a' font-size='24'>&#8594;</text><rect x='250' y='15' width='60' height='60' fill='none' stroke='#e4e4e7' stroke-width='4'/><text x='330' y='58' fill='#a855f7' font-size='30' font-weight='bold'>?</text></svg>",
     "options": ["A", "B", "C", "D"],
+    "optionFigures": [
+      "<svg viewBox='0 0 80 80'><rect x='20' y='20' width='40' height='40' fill='none' stroke='#e4e4e7' stroke-width='3'/></svg>",
+      "<svg viewBox='0 0 80 80'><rect x='20' y='20' width='40' height='40' fill='none' stroke='#e4e4e7' stroke-width='3' transform='rotate(45 40 40)'/></svg>",
+      "<svg viewBox='0 0 80 80'><polygon points='40,15 65,60 15,60' fill='none' stroke='#e4e4e7' stroke-width='3'/></svg>",
+      "<svg viewBox='0 0 80 80'><circle cx='40' cy='40' r='22' fill='none' stroke='#e4e4e7' stroke-width='3'/></svg>"
+    ],
     "answerIndex": 1,
-    "explanation": "The pattern shows a consistent 45-degree clockwise rotation.",
+    "explanation": "The sequence alternates square, diamond, square — so the next figure must be a diamond (a square rotated 45°), matching option B.",
     "category": "nonverbalreasoning",
     "difficulty": "Easy"
   },
@@ -19,10 +26,17 @@
   },
   {
     "id": "nv03",
-    "question": "Which figure is the mirror image of the given figure?",
+    "question": "Which option shows the mirror image (left-right flip) of the figure below?",
+    "questionFigure": "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
     "options": ["A", "B", "C", "D"],
+    "optionFigures": [
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,45 60,55 30,65' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,45 0,55 30,65' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='50' y1='15' x2='50' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='50,15 20,25 50,35' fill='#a855f7'/></svg>"
+    ],
     "answerIndex": 3,
-    "explanation": "A mirror image is a lateral inversion, where left becomes right and right becomes left.",
+    "explanation": "A left-right mirror flips the figure horizontally: the flag, originally pointing right, now points left on the opposite side of the pole. That matches option D exactly.",
     "category": "nonverbalreasoning",
     "difficulty": "Medium"
   },
@@ -55,10 +69,16 @@
   },
   {
     "id": "nv07",
-    "question": "Find the odd one out among figures: All shaded except one unshaded.",
+    "question": "Three of the four squares below are fully shaded. Find the one that is NOT shaded.",
     "options": ["A", "B", "C", "D"],
+    "optionFigures": [
+      "<svg viewBox='0 0 80 80'><rect x='15' y='15' width='50' height='50' fill='#a855f7' stroke='#e4e4e7' stroke-width='2'/></svg>",
+      "<svg viewBox='0 0 80 80'><rect x='15' y='15' width='50' height='50' fill='#a855f7' stroke='#e4e4e7' stroke-width='2'/></svg>",
+      "<svg viewBox='0 0 80 80'><rect x='15' y='15' width='50' height='50' fill='#a855f7' stroke='#e4e4e7' stroke-width='2'/></svg>",
+      "<svg viewBox='0 0 80 80'><rect x='15' y='15' width='50' height='50' fill='none' stroke='#e4e4e7' stroke-width='2'/></svg>"
+    ],
     "answerIndex": 3,
-    "explanation": "Figure D is the only one without shading.",
+    "explanation": "Options A, B, and C are all fully shaded squares. Option D is the only one left unshaded, making it the odd one out.",
     "category": "nonverbalreasoning",
     "difficulty": "Easy"
   },
@@ -82,10 +102,17 @@
   },
   {
     "id": "nv10",
-    "question": "Which option shows the correct water image of the given figure?",
+    "question": "Which option shows the correct water image (upside-down reflection) of the figure below?",
+    "questionFigure": "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
     "options": ["A", "B", "C", "D"],
+    "optionFigures": [
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,45 60,55 30,65' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='50' y1='15' x2='50' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='50,15 20,25 50,35' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='50' y1='15' x2='50' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='50,45 20,55 50,65' fill='#a855f7'/></svg>"
+    ],
     "answerIndex": 1,
-    "explanation": "Water image is a vertical inversion.",
+    "explanation": "A water image flips the figure top-to-bottom, keeping left/right unchanged. The flag stays pointing right but moves from the top of the pole to the bottom — exactly option B.",
     "category": "nonverbalreasoning",
     "difficulty": "Medium"
   },
@@ -154,10 +181,17 @@
   },
   {
     "id": "nv18",
-    "question": "Which figure is the rotation of the given figure by 180 degrees?",
+    "question": "Which option shows the figure below rotated by 180 degrees?",
+    "questionFigure": "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
     "options": ["A", "B", "C", "D"],
+    "optionFigures": [
+      "<svg viewBox='0 0 80 80'><line x1='50' y1='15' x2='50' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='50,45 20,55 50,65' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,45 60,55 30,65' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='50' y1='15' x2='50' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='50,15 20,25 50,35' fill='#a855f7'/></svg>"
+    ],
     "answerIndex": 0,
-    "explanation": "180-degree rotation inverts the figure upside down.",
+    "explanation": "A 180° rotation flips the figure both left-right AND top-to-bottom at once. The flag, originally top-right pointing right, ends up bottom-left pointing left — exactly option A.",
     "category": "nonverbalreasoning",
     "difficulty": "Hard"
   },
@@ -208,19 +242,26 @@
   },
   {
     "id": "nv24",
-    "question": "Count the number of intersecting lines in a figure with four lines crossing at one point.",
+    "question": "Four straight lines all pass through a single common point. How many distinct pairs of intersecting lines does this create?",
     "options": ["4", "6", "1", "0"],
     "answerIndex": 1,
-    "explanation": "Four lines intersecting at one point create 6 intersection segments, but the question is for pairs: C(4,2)=6 intersections, but since all at one point, it's 1 point, but assuming pairs.",
+    "explanation": "With 4 lines, the number of distinct pairs is calculated using combinations: C(4,2) = (4 × 3) / 2 = 6. Every pair of lines intersects at the shared point, giving 6 intersecting pairs in total.",
     "category": "nonverbalreasoning",
     "difficulty": "Hard"
   },
   {
     "id": "nv25",
-    "question": "Which option is the mirror image across a diagonal line?",
+    "question": "Which option shows the figure below mirrored across a diagonal line (as if the whole image were rotated onto its side)?",
+    "questionFigure": "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
     "options": ["A", "B", "C", "D"],
-    "answerIndex": 3,
-    "explanation": "Diagonal mirror flips across the diagonal.",
+    "optionFigures": [
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,15 60,25 30,35' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='15' y1='50' x2='65' y2='50' stroke='#e4e4e7' stroke-width='4'/><polygon points='15,50 25,20 35,50' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='30' y1='15' x2='30' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='30,45 60,55 30,65' fill='#a855f7'/></svg>",
+      "<svg viewBox='0 0 80 80'><line x1='50' y1='15' x2='50' y2='65' stroke='#e4e4e7' stroke-width='4'/><polygon points='50,15 20,25 50,35' fill='#a855f7'/></svg>"
+    ],
+    "answerIndex": 1,
+    "explanation": "A diagonal mirror swaps the figure's horizontal and vertical axes: the vertical pole becomes horizontal, and the flag (originally pointing right from near the top) now points upward from near the left end — exactly option B.",
     "category": "nonverbalreasoning",
     "difficulty": "Hard"
   },

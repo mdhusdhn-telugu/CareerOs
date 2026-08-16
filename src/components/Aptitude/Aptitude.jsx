@@ -16,11 +16,15 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
    import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 // Custom Components
+// NOTE: Navbar and Footer are intentionally NOT imported/rendered here.
+// Aptitude is a protected route rendered inside Layout.jsx (see App.jsx),
+// which already renders its own navbar header and <Footer /> around every
+// protected page via <Outlet />. Rendering them again here caused a visibly
+// doubled navbar/footer on this page.
 import Scene from '../Homepage/Scene';
-import Navbar from '../Navbar/Navbar'; 
-import Footer from '../Footer/Footer'; 
 import QuestionItem from './QuestionItem';
 import './Aptitude.css';
+import Footer from '../Footer/Footer';
 
 const QUESTIONS_PER_PAGE = 10;
 const TEST_DURATION = 15 * 60;
@@ -168,8 +172,7 @@ const Aptitude = () => {
       <Scene />
       {/* Page Wrapper forces Flex column to push Footer down */}
       <div className="aptitude-page-wrapper" ref={wrapperRef} onMouseMove={handleMouseMove}>
-        <Navbar />
-        
+
         {/* HERO SECTION */}
         <section className="aptitude-hero">
           <div className="aptitude-hero-content">
@@ -289,9 +292,6 @@ const Aptitude = () => {
             </div>
         </div>
 
-        {/* FOOTER - Now sits correctly at bottom */}
-        <Footer />
-
         <Modal open={showModal} onClose={() => setShowModal(false)}>
             <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, bgcolor: '#0a0a0a', border: '1px solid #333', borderRadius: '16px', p: 4, color: 'white', textAlign: 'center', boxShadow: '0 0 50px rgba(106, 103, 255, 0.2)' }}>
                 <Typography variant="h4" sx={{ fontWeight: 800, mb: 2 }}>Test Complete</Typography>
@@ -305,6 +305,8 @@ const Aptitude = () => {
                 </div>
             </Box>
         </Modal>
+
+        <Footer />
       </div>
     </>
   );

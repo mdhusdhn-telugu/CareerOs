@@ -65,7 +65,12 @@ const Programming = () => {
       setIsTimerRunning(true);
       setView('workspace');
     } catch (e) { 
-      alert("System Busy: Unable to generate unique challenge. Please retry."); 
+      // Log AND surface the real error — the old generic "System Busy" alert
+      // silently swallowed whatever actually went wrong (missing API key,
+      // Gemini rate limit, schema validation failure, etc.), making this
+      // impossible to diagnose from the UI alone.
+      console.error("Question generation failed:", e);
+      alert(`Unable to generate a challenge: ${e.message || "Unknown error"}. Please retry, or check the browser console for details.`);
     } finally { 
       setLoadingId(null); 
     }

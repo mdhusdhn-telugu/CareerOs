@@ -1,482 +1,540 @@
+// src/components/ResumeBuilder/ResumeBuilder.jsx
 import React, { useState, useEffect } from "react";
-import "./ResumeBuilder.css";
-import { auth, db } from "../../firebase/firebaseConfig";
-import { collection, doc, addDoc, getDoc, updateDoc } from "firebase/firestore";
-import { onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useSearchParams } from "react-router-dom";
-import html2pdf from 'html2pdf.js';
-import { generateResumeContent } from "./utils/geminiGenerator"; 
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+import { db } from "../../firebase/firebaseConfig";
+import {
+  doc,
+  getDoc,
+  setDoc,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 
-// Icons for the IDE look
-import { FaMagic, FaFileExport, FaSave, FaSignOutAlt, FaPlus, FaTrash, FaSearchPlus, FaSearchMinus } from "react-icons/fa";
+import html2pdf from "html2pdf.js";
 
-// Import Templates
+import { generateResumeContent } from "./utils/geminiGenerator";
+import {
+  mapPortfolioToResume,
+  hasMeaningfulResumeData,
+} from "../../utils/profileResumeSync";
+
+import TemplateAtlas from "./templates/TemplateAtlas";
 import TemplateStalwart from "./templates/TemplateStalwart";
 import TemplateATSClassic from "./templates/TemplateATSClassic";
 import TemplateModern from "./templates/TemplateModern";
 import TemplateClassic from "./templates/TemplateClassic";
 import TemplateProfessional from "./templates/TemplateProfessional";
+import TemplateExecutive from "./templates/TemplateExecutive";
 
-// --- Default Data Objects ---
-const stalwartData = {
-  name: "May Riley",
-  title: "Restaurant Manager",
-  email: "m.riley@live.com",
-  phone: "(716) 555-0100",
-  linkedin: "linkedin.com/in/m.riley",
-  github: "",
-  location: "Buffalo, New York",
-  summary: "Friendly and engaging team player and leader able to inspire staff to perform their best. Detail oriented and experienced restaurant manager passionate about food and beverages.",
-  experience: [{ company: "Contoso Bar and Grill", role: "Restaurant Manager", duration: "Sep 20XX - Present", description: "• Recruit, hire, train, and coach over 30 staff members...\n• Reduced costs by 7%...\n• Consistently exceed monthly sales goals by 10%..." }],
-  education: [{ institution: "Bigtown College", degree: "B.S. in Business Administration", duration: "June 20XX", details: "" }],
-  skills: ["Accounting", "POS systems", "Team Leadership", "Energetic"],
-  projects: [],
-  certificates: []
-};
+import "./ResumeBuilder.css";
 
-const atsClassicData = {
-    name: "Danielle Brasseur",
-    title: "Accountant",
-    email: "danielle@example.com",
-    phone: "(313) 555-0100",
-    linkedin: "linkedin.com/in/danielleb",
-    github: "",
-    location: "Carson City, NV",
-    summary: "Dynamic and detail-oriented accountant with expertise in GAAP and comprehensive public accounting experience.",
-    experience: [
-        { company: "Trey Research", role: "Accountant", duration: "March 20XX – Present", description: "• Provide accounting services for individuals and businesses.\n• Specialize in income tax preparation and audit support." }
-    ],
-    education: [{ institution: "Bellows College", degree: "B.S. Accounting", duration: "June 20XX", details: "GPA: 3.8" }],
-    skills: ["Microsoft NAV Dynamics", "Tax codes", "Bookkeeping", "Communication"],
-    projects: [],
-    certificates: []
-};
-
-const modernData = {
-  name: "Alta Parks",
-  title: "Attorney",
-  email: "alta@example.com",
-  phone: "718.555.0100",
-  linkedin: "linkedin.com/in/alta",
-  github: "",
-  location: "New York, NY",
-  summary: "Analytical, energetic, and detail-oriented attorney with broad and deep experience in business and real estate matters.",
-  experience: [
-    { company: "Bandter Real Estate", role: "In-house counsel", duration: "March 20XX—present", description: "Draft, negotiate and enforce leases and purchase & sale agreements." },
-  ],
-  education: [{ institution: "Jasper University", degree: "Juris Doctor", duration: "June 20XX", details: "1st place in Moot Court" }],
-  skills: ["Data analytics", "Legal writing", "Communication", "Organized"],
-  projects: [],
-  certificates: []
-};
-
-const classicData = {
-    name: "Graham Barnes",
-    title: "Web Developer",
-    email: "Graham@EXAMPLE.COM",
-    phone: "303.555.0123",
-    linkedin: "linkedin.com/in/grahamb",
-    github: "",
-    location: "Denver, CO",
-    summary: "To obtain a challenging web developer position in a dynamic and innovative organization.",
-    experience: [
-      { company: "Proseware, Inc.", role: "Front-end Developer", duration: "Sep 20XX – Aug 20XX", description: "• Develop and maintain responsive websites.\n• Collaborate with cross-functional teams." }
-    ],
-    education: [{ institution: "Glennwood University", degree: "BS Computer Science", duration: "20XX", details: "GPA: 3.8" }],
-    skills: ["HTML5", "CSS3", "JavaScript", "React", "Node.js"],
-    projects: [],
-    certificates: []
-};
-
-const professionalData = {
-  name: "Madhu Sudhan",
-  title: "Aspiring Full Stack Developer",
-  email: "mdhusdhndegree@gmail.com",
-  phone: "86883 81084",
-  linkedin: "linkedin.com/in/yourprofile",
-  github: "github.com/yourprofile",
-  location: "Nandyal, India",
-  summary: "Aspiring full stack developer with internship experience in React.js, Python, and Django. Skilled in building scalable, user-focused web applications.",
-  experience: [
-    { company: "Internzlearn", role: "Web Development Intern", duration: "Feb 2025 - Mar 2025", description: "• Built responsive, user-friendly web interfaces and enhanced cross-device usability." },
-    { company: "DataPro", role: "Full Stack Python Intern", duration: "Dec 2024 - Mar 2025", description: "• Developed and integrated APIs, optimized backend logic, and supported deployment." }
-  ],
-  education: [{ institution: "Rayalaseema University", degree: "BCA", duration: "Sep 2022 - Apr 2025", details: "GPA: 8.2/10.0" }],
-  skills: ["React.js", "JavaScript", "Python", "Django", "MySQL", "Git"],
-  projects: [
-      { name: "Classic Snake Game", description: "• Developed a mobile and browser-compatible Snake game with real-time movement." },
-      { name: "Gemini AI ChatBot", description: "• Cloned an AI chatbot using the Gemini API, replicating its conversational abilities." },
-  ],
-  certificates: [
-      { name: "Intro to Front-End Development, Coursera" },
-      { name: "The Ultimate MySQL Bootcamp, Udemy" },
-  ]
-};
-
-const templates = [
-  { id: 1, name: "Stalwart", data: stalwartData },
-  { id: 2, name: "ATS Classic", data: atsClassicData },
-  { id: 3, name: "Modern", data: modernData },
-  { id: 4, name: "Classic", data: classicData },
-  { id: 5, name: "Professional", data: professionalData },
+const TEMPLATES = [
+  { id: "atlas", label: "Atlas (Recommended)", Component: TemplateAtlas },
+  { id: "stalwart", label: "Stalwart", Component: TemplateStalwart },
+  { id: "atsclassic", label: "ATS Classic", Component: TemplateATSClassic },
+  { id: "modern", label: "Modern", Component: TemplateModern },
+  { id: "classic", label: "Classic", Component: TemplateClassic },
+  { id: "professional", label: "Professional", Component: TemplateProfessional },
+  { id: "executive", label: "Executive", Component: TemplateExecutive },
 ];
 
-const ResumeBuilder = () => {
-  const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedTemplate, setSelectedTemplate] = useState(templates[0].id);
-  const [resumeData, setResumeData] = useState(templates[0].data);
-  const [resumeId, setResumeId] = useState(null);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [zoomLevel, setZoomLevel] = useState(0.8); // Start slightly zoomed out to see full page
-  const [generatingField, setGeneratingField] = useState(null);
-
-  const handleTemplateChange = (templateId) => {
-    setSelectedTemplate(templateId);
-    const newTemplateData = templates.find(t => t.id === templateId)?.data;
-    if (newTemplateData && !resumeId) {
-      setResumeData(newTemplateData);
-    }
-  };
-  
-  useEffect(() => {
-    const unsub = onAuthStateChanged(auth, async (currentUser) => {
-      setUser(currentUser);
-      setIsLoading(false);
-      if (currentUser) {
-        const idFromUrl = searchParams.get("id");
-        if (idFromUrl) {
-          setResumeId(idFromUrl);
-          const ref = doc(db, "users", currentUser.uid, "resumes", idFromUrl);
-          const snap = await getDoc(ref);
-          if (snap.exists()) {
-            const data = snap.data();
-            const baseData = templates.find(t => t.id === data.selectedTemplate)?.data || templates[0].data;
-            setResumeData({ ...baseData, ...data });
-            if (data.selectedTemplate) setSelectedTemplate(data.selectedTemplate);
-          } else { 
-            alert("Resume not found."); 
-            searchParams.delete("id");
-            setSearchParams(searchParams);
-          }
-        }
-      }
-    });
-    return () => unsub();
-  }, [searchParams, setSearchParams]);
-
-  const handleDownloadResume = () => {
-    const resumeContent = document.getElementById("resume-preview-content");
-    if (!resumeContent) return alert("Resume content not found");
-    const opt = {
-      margin: 0,
-      filename: `${resumeData.name.replace(/\s+/g, '_')}_Resume.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-    html2pdf().from(resumeContent).set(opt).save();
-  };
-
-  const handleInputChange = (e, section = null, idx = null) => {
-    const { name, value } = e.target;
-    if (section) {
-      const arr = [...resumeData[section]];
-      arr[idx] = { ...arr[idx], [name]: value };
-      setResumeData({ ...resumeData, [section]: arr });
-    } else {
-      setResumeData({ ...resumeData, [name]: value });
-    }
-  };
-
-  const addSectionItem = (section) => {
-    let newItem = {};
-    if (section === "experience") newItem = { company: "", role: "", duration: "", description: "" };
-    else if (section === "education") newItem = { institution: "", degree: "", duration: "", details: "" };
-    else if (section === "projects") newItem = { name: "", description: "" };
-    else if (section === "certificates") newItem = { name: "" };
-    setResumeData({ ...resumeData, [section]: [...(resumeData[section] || []), newItem] });
-  };
-
-  const removeSectionItem = (section, idx) => {
-    const arr = [...resumeData[section]];
-    arr.splice(idx, 1);
-    setResumeData({ ...resumeData, [section]: arr });
-  };
-
-  const saveResumeToFirestore = async () => {
-    if (!user) return alert("Log in to save.");
-    try {
-      const dataToSave = { ...resumeData, userId: user.uid, selectedTemplate, updatedAt: new Date() };
-      const collectionPath = collection(db, "users", user.uid, "resumes");
-      if (resumeId) {
-        await updateDoc(doc(collectionPath, resumeId), dataToSave);
-        alert("System: Resume data synchronized.");
-      } else {
-        const docRef = await addDoc(collectionPath, { ...dataToSave, createdAt: new Date() });
-        setResumeId(docRef.id);
-        searchParams.set("id", docRef.id);
-        setSearchParams(searchParams);
-        alert("System: New resume initialized and saved.");
-      }
-    } catch (err) {
-      alert("Error: " + err.message);
-    }
-  };
-
-  // --- AI Generation Handlers ---
-
-  const handleAISummary = async () => {
-    if (!resumeData.title) return alert("System Error: Job Title required for AI generation.");
-    setGeneratingField('summary');
-    const text = await generateResumeContent('summary', { 
-        title: resumeData.title, 
-        location: resumeData.location 
-    });
-    if (text) setResumeData({ ...resumeData, summary: text });
-    setGeneratingField(null);
-  };
-
-  const handleAIExperience = async (index) => {
-    const exp = resumeData.experience[index];
-    if (!exp.role || !exp.company) return alert("System Error: Role and Company required.");
-    setGeneratingField(`exp-${index}`);
-    
-    const text = await generateResumeContent('experience', { 
-        role: exp.role, 
-        company: exp.company 
-    });
-    
-    if (text) {
-        const newExp = [...resumeData.experience];
-        newExp[index] = { ...newExp[index], description: text };
-        setResumeData({ ...resumeData, experience: newExp });
-    }
-    setGeneratingField(null);
-  };
-
-  const handleAIProject = async (index) => {
-    const proj = resumeData.projects[index];
-    if (!proj.name) return alert("System Error: Project Name required.");
-    setGeneratingField(`proj-${index}`);
-    
-    const text = await generateResumeContent('project', { 
-        name: proj.name, 
-        skills: resumeData.skills?.join(", ") 
-    });
-    
-    if (text) {
-        const newProj = [...resumeData.projects];
-        newProj[index] = { ...newProj[index], description: text };
-        setResumeData({ ...resumeData, projects: newProj });
-    }
-    setGeneratingField(null);
-  };
-
-  const handleAISkills = async () => {
-      if (!resumeData.title) return alert("System Error: Job Title required.");
-      setGeneratingField('skills');
-      const text = await generateResumeContent('skills', { title: resumeData.title });
-      if (text) {
-          setResumeData({ ...resumeData, skills: text.split(',').map(s => s.trim()) });
-      }
-      setGeneratingField(null);
-  };
-
-  if (isLoading) return <div className="loading-container">System initializing...</div>;
-  if (!user) {
-    return (
-      <div className="login-prompt">
-        <h2>Authentication Required</h2>
-        <p style={{marginBottom: '20px', color: '#a1a1aa'}}>Access the Resume Workspace</p>
-        <button onClick={() => signInWithPopup(auth, new GoogleAuthProvider())} className="auth-button">
-          Initialize Session (Google)
-        </button>
-      </div>
-    );
-  }
-
-  const renderTemplate = () => {
-    return (
-      <div id="resume-preview-content">
-        {(() => {
-          switch (selectedTemplate) {
-            case 1: return <TemplateStalwart data={resumeData} />;
-            case 2: return <TemplateATSClassic data={resumeData} />;
-            case 3: return <TemplateModern data={resumeData} />;
-            case 4: return <TemplateClassic data={resumeData} />;
-            case 5: return <TemplateProfessional data={resumeData} />;
-            default: return <TemplateStalwart data={resumeData} />;
-          }
-        })()}
-      </div>
-    );
-  };
-
-  return (
-    <div className="resume-builder-container">
-      {/* SIDEBAR: The "Editor" */}
-      <aside className="rb-sidebar">
-        <header className="rb-header">
-          <h2>CodeAstra Builder</h2>
-          <button onClick={() => auth.signOut()} className="auth-button">
-             <FaSignOutAlt />
-          </button>
-        </header>
-        
-        <section className="template-selector">
-          <h3>Select Architecture</h3>
-          <div className="template-list">
-            {templates.map((t) => (
-              <div 
-                key={t.id} 
-                className={`template-thumb ${selectedTemplate === t.id ? "active" : ""}`} 
-                onClick={() => handleTemplateChange(t.id)}
-              >
-                {t.name}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="rb-form">
-          <h3>// Personal Information</h3>
-          <div className="form-group">
-            <input name="name" value={resumeData.name || ''} onChange={handleInputChange} placeholder="Full Name" />
-            <input name="title" value={resumeData.title || ''} onChange={handleInputChange} placeholder="Target Role (e.g. Full Stack Developer)" />
-            <input name="email" value={resumeData.email || ''} onChange={handleInputChange} placeholder="Email" />
-            <input name="phone" value={resumeData.phone || ''} onChange={handleInputChange} placeholder="Phone" />
-            <input name="location" value={resumeData.location || ''} onChange={handleInputChange} placeholder="Location" />
-            <div style={{display:'flex', gap:'10px'}}>
-              <input name="linkedin" value={resumeData.linkedin || ''} onChange={handleInputChange} placeholder="LinkedIn URL" />
-              <input name="github" value={resumeData.github || ''} onChange={handleInputChange} placeholder="GitHub URL" />
-            </div>
-          </div>
-
-          <h3>// Executive Summary</h3>
-          <div className="form-group">
-            <textarea name="summary" value={resumeData.summary || ''} onChange={handleInputChange} placeholder="Professional summary..." rows={4} />
-            <button 
-              className="ai-generate-btn" 
-              onClick={handleAISummary}
-              disabled={generatingField === 'summary'}
-            >
-              <FaMagic /> {generatingField === 'summary' ? 'Processing...' : 'Auto-Generate Summary'}
-            </button>
-          </div>
-          
-          <h3>// Experience</h3>
-          <div className="form-section">
-            {resumeData.experience && resumeData.experience.map((exp, i) => (
-              <div key={i} className="form-group">
-                <input name="role" value={exp.role} onChange={(e) => handleInputChange(e, "experience", i)} placeholder="Job Title" />
-                <input name="company" value={exp.company} onChange={(e) => handleInputChange(e, "experience", i)} placeholder="Company" />
-                <input name="duration" value={exp.duration} onChange={(e) => handleInputChange(e, "experience", i)} placeholder="Duration (e.g., Jan 2024 - Present)" />
-                <textarea name="description" value={exp.description} onChange={(e) => handleInputChange(e, "experience", i)} placeholder="Bullet points..." rows={4} />
-                
-                <button 
-                    className="ai-generate-btn small" 
-                    onClick={() => handleAIExperience(i)}
-                    disabled={generatingField === `exp-${i}`}
-                >
-                     <FaMagic /> {generatingField === `exp-${i}` ? 'Optimizing...' : 'Enhance Description'}
-                </button>
-
-                <button onClick={() => removeSectionItem("experience", i)} className="remove-btn"><FaTrash /> Remove Entry</button>
-              </div>
-            ))}
-            <button onClick={() => addSectionItem("experience")} className="add-btn"><FaPlus /> Add Experience</button>
-          </div>
-          
-          <h3>// Technical Projects</h3>
-          <div className="form-section">
-            {resumeData.projects && resumeData.projects.map((proj, i) => (
-              <div key={i} className="form-group">
-                <input name="name" value={proj.name} onChange={(e) => handleInputChange(e, "projects", i)} placeholder="Project Name" />
-                <textarea name="description" value={proj.description} onChange={(e) => handleInputChange(e, "projects", i)} placeholder="Project Details..." rows={3} />
-                
-                 <button 
-                    className="ai-generate-btn small" 
-                    onClick={() => handleAIProject(i)}
-                    disabled={generatingField === `proj-${i}`}
-                >
-                     <FaMagic /> {generatingField === `proj-${i}` ? 'Generating...' : 'Describe Project'}
-                </button>
-
-                <button onClick={() => removeSectionItem("projects", i)} className="remove-btn"><FaTrash /> Remove Project</button>
-              </div>
-            ))}
-            <button onClick={() => addSectionItem("projects")} className="add-btn"><FaPlus /> Add Project</button>
-          </div>
-
-          <h3>// Education</h3>
-          <div className="form-section">
-             {resumeData.education && resumeData.education.map((edu, i) => (
-              <div key={i} className="form-group">
-                <input name="institution" value={edu.institution} onChange={(e) => handleInputChange(e, "education", i)} placeholder="Institution / University" />
-                <input name="degree" value={edu.degree} onChange={(e) => handleInputChange(e, "education", i)} placeholder="Degree" />
-                <input name="duration" value={edu.duration} onChange={(e) => handleInputChange(e, "education", i)} placeholder="Year of Passing" />
-                <input name="details" value={edu.details} onChange={(e) => handleInputChange(e, "education", i)} placeholder="Additional Details (GPA, Honors)" />
-                <button onClick={() => removeSectionItem("education", i)} className="remove-btn"><FaTrash /> Remove Education</button>
-              </div>
-            ))}
-            <button onClick={() => addSectionItem("education")} className="add-btn"><FaPlus /> Add Education</button>
-          </div>
-
-          <h3>// Skills Array</h3>
-          <div className="form-group">
-            <textarea 
-                value={resumeData.skills ? resumeData.skills.join(", ") : ''} 
-                onChange={(e) => setResumeData({...resumeData, skills: e.target.value.split(",").map((s) => s.trim()).filter(Boolean)})} 
-                placeholder="React, Python, Java, etc. (Comma separated)"
-                rows={3}
-            />
-            <button 
-                className="ai-generate-btn" 
-                onClick={handleAISkills}
-                disabled={generatingField === 'skills'}
-            >
-                <FaMagic /> {generatingField === 'skills' ? 'Analyzing...' : 'Suggest Skills'}
-            </button>
-          </div>
-          
-          <h3>// Certifications</h3>
-          <div className="form-section">
-            {resumeData.certificates && resumeData.certificates.map((cert, i) => (
-              <div key={i} className="form-group">
-                <input name="name" value={cert.name} onChange={(e) => handleInputChange(e, "certificates", i)} placeholder="Certificate Name" />
-                <button onClick={() => removeSectionItem("certificates", i)} className="remove-btn"><FaTrash /> Remove</button>
-              </div>
-            ))}
-            <button onClick={() => addSectionItem("certificates")} className="add-btn"><FaPlus /> Add Certificate</button>
-          </div>
-
-          <button onClick={saveResumeToFirestore} className="save-btn">
-            <FaSave style={{marginRight:'8px'}}/> Save Data
-          </button>
-        </section>
-      </aside>
-
-      {/* PREVIEW AREA: The "Desk" */}
-      <main className="rb-preview-area">
-        <div className="rb-preview-actions">
-          <button onClick={handleDownloadResume} className="download-btn">
-             <FaFileExport style={{marginRight:'8px'}} /> Compile & Export
-          </button>
-        </div>
-        
-        <div className="resume-wrapper" style={{ transform: `scale(${zoomLevel})` }}>
-          {renderTemplate()}
-        </div>
-        
-        <div className="rb-zoom-controls">
-          <button onClick={() => setZoomLevel(z => Math.max(z - 0.1, 0.4))}><FaSearchMinus /></button>
-          <span>{Math.round(zoomLevel * 100)}%</span>
-          <button onClick={() => setZoomLevel(z => Math.min(z + 0.1, 1.5))}><FaSearchPlus /></button>
-        </div>
-      </main>
-    </div>
-  );
+const EMPTY_RESUME = {
+  name: "",
+  title: "",
+  phone: "",
+  location: "",
+  email: "",
+  linkedin: "",
+  github: "",
+  summary: "",
+  skills: [],
+  languages: [],
+  experience: [],
+  education: [],
+  projects: [],
+  certificates: [],
 };
 
-export default ResumeBuilder;
+// Realistic, professional placeholder content for fields the site's own
+// data (Portfolio) has no source for — phone, location, education,
+// certificates, languages, and (only if truly empty) one sample experience
+// and project. This keeps a freshly-created resume looking like a genuine,
+// full single page instead of sparse, while making it obvious these are
+// examples meant to be replaced with the user's real info.
+const DUMMY_DEFAULTS = {
+  phone: "+1 (555) 123-4567",
+  location: "San Francisco, CA",
+  summary:
+    "Motivated and detail-oriented professional with a passion for building high-quality work and solving real-world problems. Quick learner, strong communicator, and effective collaborator in fast-paced team environments.",
+  skills: ["Communication", "Problem Solving", "Teamwork", "Time Management", "Adaptability"],
+  languages: ["English (Fluent)", "Spanish (Conversational)"],
+  education: [
+    { degree: "B.S. in Computer Science", institution: "State University", duration: "2019 - 2023", details: "" },
+  ],
+  certificates: [{ name: "Google Project Management Certificate" }],
+  experience: [
+    {
+      role: "Software Engineer Intern",
+      company: "TechNova Solutions",
+      duration: "Jun 2022 - Aug 2022",
+      description:
+        "• Built and shipped features for a production web application used by 10,000+ users\n• Collaborated with a team of 5 engineers using Agile methodology\n• Reduced page load time by 30% through code optimization",
+    },
+  ],
+  projects: [
+    {
+      name: "Personal Portfolio Website",
+      description:
+        "• Designed and built a responsive portfolio site using React and Tailwind CSS\n• Deployed via Netlify with continuous integration from GitHub",
+    },
+  ],
+};
+
+// Fills in ONLY the fields that are still empty — real/imported data always
+// wins, dummy content only fills genuine gaps.
+function fillGapsWithDummyData(resume) {
+  const filled = { ...resume };
+  Object.keys(DUMMY_DEFAULTS).forEach((key) => {
+    const current = filled[key];
+    const isEmpty = Array.isArray(current) ? current.length === 0 : !current;
+    if (isEmpty) filled[key] = DUMMY_DEFAULTS[key];
+  });
+  return filled;
+}
+
+export default function ResumeBuilder() {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const resumeId = searchParams.get("id");
+
+  const [formData, setFormData] = useState(EMPTY_RESUME);
+  const [templateId, setTemplateId] = useState("atlas");
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [notice, setNotice] = useState("");
+  const [aiLoadingField, setAiLoadingField] = useState(null);
+
+  // Temp inputs for list-style fields
+  const [skillInput, setSkillInput] = useState("");
+  const [languageInput, setLanguageInput] = useState("");
+  const [expInput, setExpInput] = useState({ role: "", company: "", duration: "", description: "", subEntries: [] });
+  const [subEntryInput, setSubEntryInput] = useState({ name: "", description: "" });
+  const [eduInput, setEduInput] = useState({ degree: "", institution: "", duration: "", details: "" });
+  const [projInput, setProjInput] = useState({ name: "", description: "" });
+  const [certInput, setCertInput] = useState({ name: "" });
+
+  // --- LOAD: existing resume (edit mode) OR cross-sync from Portfolio (new + empty) ---
+  useEffect(() => {
+    if (!user?.uid) return;
+
+    const load = async () => {
+      setLoading(true);
+      try {
+        if (resumeId) {
+          // Editing an existing resume
+          const snap = await getDoc(doc(db, "users", user.uid, "resumes", resumeId));
+          if (snap.exists()) {
+            const { updatedAt, ...rest } = snap.data();
+            setFormData({ ...EMPTY_RESUME, ...rest });
+          }
+        } else {
+          // New resume — if it would otherwise be empty, try seeding from Portfolio
+          const userSnap = await getDoc(doc(db, "users", user.uid));
+          const userData = userSnap.exists() ? userSnap.data() : {};
+          const imported = mapPortfolioToResume(userData);
+          const baseline = hasMeaningfulResumeData(imported)
+            ? { ...EMPTY_RESUME, ...imported, name: imported.name || user.displayName || "" }
+            : { ...EMPTY_RESUME, name: user.displayName || "" };
+
+          setFormData(fillGapsWithDummyData(baseline));
+          setNotice(
+            hasMeaningfulResumeData(imported)
+              ? "We pre-filled this from your Portfolio, and added example content (education, languages, etc.) for anything your Portfolio doesn't track yet — replace the examples with your real info before saving."
+              : "We added example content to show what a complete single-page resume looks like — replace it with your real info before saving."
+          );
+        }
+      } catch (err) {
+        console.error("Error loading resume:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, [user, resumeId]);
+
+  // --- MANUAL "Import from Portfolio" (available any time, non-destructive per-field) ---
+  const handleImportFromPortfolio = async () => {
+    if (!user?.uid) return;
+    const userSnap = await getDoc(doc(db, "users", user.uid));
+    if (!userSnap.exists()) {
+      setNotice("No Portfolio data found yet — fill out your Portfolio first.");
+      return;
+    }
+    const imported = mapPortfolioToResume(userSnap.data());
+    const merged = {
+      ...formData,
+      name: formData.name || imported.name,
+      title: formData.title || imported.title,
+      summary: formData.summary || imported.summary,
+      email: formData.email || imported.email,
+      linkedin: formData.linkedin || imported.linkedin,
+      github: formData.github || imported.github,
+      skills: formData.skills.length ? formData.skills : imported.skills,
+      projects: formData.projects.length ? formData.projects : imported.projects,
+    };
+    setFormData(fillGapsWithDummyData(merged));
+    setNotice("Imported from your Portfolio, with example content added for anything it doesn't cover. Review below, then Save.");
+  };
+
+  // --- FIELD HELPERS ---
+  const setField = (field, value) => setFormData((prev) => ({ ...prev, [field]: value }));
+
+  const removeFromList = (field, index) => {
+    setFormData((prev) => ({ ...prev, [field]: prev[field].filter((_, i) => i !== index) }));
+  };
+
+  const addSkill = () => {
+    if (!skillInput.trim()) return;
+    setFormData((prev) => ({ ...prev, skills: [...prev.skills, skillInput.trim()] }));
+    setSkillInput("");
+  };
+
+  const addLanguage = () => {
+    if (!languageInput.trim()) return;
+    setFormData((prev) => ({ ...prev, languages: [...prev.languages, languageInput.trim()] }));
+    setLanguageInput("");
+  };
+
+  const addSubEntryToDraft = () => {
+    if (!subEntryInput.name.trim()) return;
+    setExpInput((prev) => ({ ...prev, subEntries: [...prev.subEntries, subEntryInput] }));
+    setSubEntryInput({ name: "", description: "" });
+  };
+
+  const removeSubEntryFromDraft = (index) => {
+    setExpInput((prev) => ({ ...prev, subEntries: prev.subEntries.filter((_, i) => i !== index) }));
+  };
+
+  const addExperience = () => {
+    if (!expInput.role.trim()) return;
+    setFormData((prev) => ({ ...prev, experience: [...prev.experience, expInput] }));
+    setExpInput({ role: "", company: "", duration: "", description: "", subEntries: [] });
+  };
+
+  const addEducation = () => {
+    if (!eduInput.degree.trim()) return;
+    setFormData((prev) => ({ ...prev, education: [...prev.education, eduInput] }));
+    setEduInput({ degree: "", institution: "", duration: "", details: "" });
+  };
+
+  const addProject = () => {
+    if (!projInput.name.trim()) return;
+    setFormData((prev) => ({ ...prev, projects: [...prev.projects, projInput] }));
+    setProjInput({ name: "", description: "" });
+  };
+
+  const addCertificate = () => {
+    if (!certInput.name.trim()) return;
+    setFormData((prev) => ({ ...prev, certificates: [...prev.certificates, certInput] }));
+    setCertInput({ name: "" });
+  };
+
+  // --- AI ASSIST (uses existing geminiGenerator.js) ---
+  const handleAiGenerate = async (type, payload) => {
+    setAiLoadingField(type);
+    try {
+      const text = await generateResumeContent(type, payload);
+      if (!text) return;
+
+      if (type === "summary") {
+        setField("summary", text);
+      } else if (type === "skills") {
+        const parsed = text.split(",").map((s) => s.trim()).filter(Boolean);
+        setFormData((prev) => ({ ...prev, skills: [...new Set([...prev.skills, ...parsed])] }));
+      } else if (type === "experience") {
+        setExpInput((prev) => ({ ...prev, description: text }));
+      } else if (type === "project") {
+        setProjInput((prev) => ({ ...prev, description: text }));
+      }
+    } finally {
+      setAiLoadingField(null);
+    }
+  };
+
+  // --- DOWNLOAD PDF (A4, matches the on-screen preview exactly) ---
+  const handleDownloadPDF = () => {
+    const element = document.getElementById("resume-preview-content");
+    if (!element) return;
+
+    const fileName = `${formData.name || "resume"}.pdf`.replace(/\s+/g, "_");
+
+    html2pdf()
+      .set({
+        margin: 0,
+        filename: fileName,
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      })
+      .from(element)
+      .save();
+  };
+
+  // --- SAVE ---
+  const handleSave = async () => {
+    if (!user?.uid) return;
+    setSaving(true);
+    try {
+      if (resumeId) {
+        await setDoc(
+          doc(db, "users", user.uid, "resumes", resumeId),
+          { ...formData, updatedAt: serverTimestamp() },
+          { merge: true }
+        );
+      } else {
+        const newDoc = await addDoc(collection(db, "users", user.uid, "resumes"), {
+          ...formData,
+          updatedAt: serverTimestamp(),
+        });
+        navigate(`/resume/builder?id=${newDoc.id}`, { replace: true });
+      }
+      setNotice("Resume saved.");
+    } catch (err) {
+      console.error("Error saving resume:", err);
+      setNotice("Failed to save. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (loading) {
+    return <div className="rb-loading">Loading builder...</div>;
+  }
+
+  const ActiveTemplate = TEMPLATES.find((t) => t.id === templateId)?.Component || TemplateAtlas;
+
+  return (
+    <div className="rb-wrapper">
+      <div className="rb-toolbar">
+        <div className="rb-toolbar-left">
+          <button className="rb-btn-outline" onClick={handleImportFromPortfolio} type="button">
+            Import from Portfolio
+          </button>
+          <select
+            className="rb-template-select"
+            value={templateId}
+            onChange={(e) => setTemplateId(e.target.value)}
+          >
+            {TEMPLATES.map((t) => (
+              <option key={t.id} value={t.id}>{t.label}</option>
+            ))}
+          </select>
+        </div>
+        <div className="rb-toolbar-right">
+          <button className="rb-btn-outline" onClick={handleDownloadPDF} type="button">
+            Download PDF
+          </button>
+          <button className="rb-btn-primary" onClick={handleSave} disabled={saving} type="button">
+            {saving ? "Saving..." : "Save Resume"}
+          </button>
+        </div>
+      </div>
+
+      {notice && (
+        <div className="rb-notice">
+          {notice}
+          <button className="rb-notice-dismiss" onClick={() => setNotice("")} type="button">&times;</button>
+        </div>
+      )}
+
+      <div className="rb-body">
+        {/* --- FORM PANE --- */}
+        <div className="rb-form-pane">
+          <section className="rb-section">
+            <h3>Basics</h3>
+            <input placeholder="Full Name" value={formData.name} onChange={(e) => setField("name", e.target.value)} />
+            <input placeholder="Target Role / Title (e.g. Frontend Developer)" value={formData.title} onChange={(e) => setField("title", e.target.value)} />
+            <div className="rb-grid-2">
+              <input placeholder="Phone" value={formData.phone} onChange={(e) => setField("phone", e.target.value)} />
+              <input placeholder="Location" value={formData.location} onChange={(e) => setField("location", e.target.value)} />
+              <input placeholder="Email" value={formData.email} onChange={(e) => setField("email", e.target.value)} />
+              <input placeholder="LinkedIn URL" value={formData.linkedin} onChange={(e) => setField("linkedin", e.target.value)} />
+              <input placeholder="GitHub URL" value={formData.github} onChange={(e) => setField("github", e.target.value)} />
+            </div>
+          </section>
+
+          <section className="rb-section">
+            <div className="rb-section-header-row">
+              <h3>Summary</h3>
+              <button
+                className="ai-generate-btn small"
+                type="button"
+                disabled={aiLoadingField === "summary"}
+                onClick={() => handleAiGenerate("summary", { title: formData.title, location: formData.location })}
+              >
+                {aiLoadingField === "summary" ? "Generating..." : "✦ AI Generate"}
+              </button>
+            </div>
+            <textarea rows="4" placeholder="Short professional summary..." value={formData.summary} onChange={(e) => setField("summary", e.target.value)} />
+          </section>
+
+          <section className="rb-section">
+            <div className="rb-section-header-row">
+              <h3>Skills</h3>
+              <button
+                className="ai-generate-btn small"
+                type="button"
+                disabled={aiLoadingField === "skills"}
+                onClick={() => handleAiGenerate("skills", { title: formData.title })}
+              >
+                {aiLoadingField === "skills" ? "Generating..." : "✦ AI Suggest"}
+              </button>
+            </div>
+            <div className="rb-add-row">
+              <input placeholder="Add a skill" value={skillInput} onChange={(e) => setSkillInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && addSkill()} />
+              <button className="rb-btn-icon" type="button" onClick={addSkill}>+</button>
+            </div>
+            <div className="rb-tag-wrap">
+              {formData.skills.map((s, i) => (
+                <span key={i} className="rb-tag">{s} <button type="button" onClick={() => removeFromList("skills", i)}>&times;</button></span>
+              ))}
+            </div>
+          </section>
+
+          <section className="rb-section">
+            <h3>Languages</h3>
+            <div className="rb-add-row">
+              <input placeholder="e.g. English (Fluent)" value={languageInput} onChange={(e) => setLanguageInput(e.target.value)} onKeyDown={(e) => e.key === "Enter" && addLanguage()} />
+              <button className="rb-btn-icon" type="button" onClick={addLanguage}>+</button>
+            </div>
+            <div className="rb-tag-wrap">
+              {formData.languages.map((l, i) => (
+                <span key={i} className="rb-tag">{l} <button type="button" onClick={() => removeFromList("languages", i)}>&times;</button></span>
+              ))}
+            </div>
+          </section>
+
+          <section className="rb-section">
+            <h3>Experience</h3>
+            <div className="rb-grid-2">
+              <input placeholder="Role" value={expInput.role} onChange={(e) => setExpInput({ ...expInput, role: e.target.value })} />
+              <input placeholder="Company" value={expInput.company} onChange={(e) => setExpInput({ ...expInput, company: e.target.value })} />
+            </div>
+            <input placeholder="Duration (e.g. Jan 2023 - Present)" value={expInput.duration} onChange={(e) => setExpInput({ ...expInput, duration: e.target.value })} />
+            <div className="rb-section-header-row">
+              <span className="rb-mini-label">Description</span>
+              <button
+                className="ai-generate-btn small"
+                type="button"
+                disabled={aiLoadingField === "experience"}
+                onClick={() => handleAiGenerate("experience", { role: expInput.role, company: expInput.company })}
+              >
+                {aiLoadingField === "experience" ? "Generating..." : "✦ AI Generate"}
+              </button>
+            </div>
+            <textarea rows="3" placeholder="One bullet per line, starting with •" value={expInput.description} onChange={(e) => setExpInput({ ...expInput, description: e.target.value })} />
+
+            <div className="rb-subentry-box">
+              <span className="rb-mini-label">Sub-entry (optional — e.g. a capstone project nested under this program)</span>
+              <input placeholder="Sub-entry name" value={subEntryInput.name} onChange={(e) => setSubEntryInput({ ...subEntryInput, name: e.target.value })} />
+              <textarea rows="2" placeholder="One bullet per line" value={subEntryInput.description} onChange={(e) => setSubEntryInput({ ...subEntryInput, description: e.target.value })} />
+              <button className="rb-btn-secondary" type="button" onClick={addSubEntryToDraft}>+ Add Sub-entry</button>
+
+              {expInput.subEntries.map((sub, i) => (
+                <div key={i} className="rb-list-item rb-subentry-item">
+                  <div><strong>{sub.name}</strong></div>
+                  <button type="button" onClick={() => removeSubEntryFromDraft(i)}>&times;</button>
+                </div>
+              ))}
+            </div>
+
+            <button className="rb-btn-secondary" type="button" onClick={addExperience}>+ Add Experience</button>
+
+            {formData.experience.map((exp, i) => (
+              <div key={i} className="rb-list-item">
+                <div>
+                  <strong>{exp.role}</strong>{exp.company ? ` — ${exp.company}` : ""}
+                  <div className="rb-sub-text">{exp.duration}</div>
+                  {exp.subEntries && exp.subEntries.length > 0 && (
+                    <div className="rb-sub-text">↳ {exp.subEntries.map((s) => s.name).join(", ")}</div>
+                  )}
+                </div>
+                <button type="button" onClick={() => removeFromList("experience", i)}>&times;</button>
+              </div>
+            ))}
+          </section>
+
+          <section className="rb-section">
+            <h3>Education</h3>
+            <div className="rb-grid-2">
+              <input placeholder="Degree" value={eduInput.degree} onChange={(e) => setEduInput({ ...eduInput, degree: e.target.value })} />
+              <input placeholder="Institution" value={eduInput.institution} onChange={(e) => setEduInput({ ...eduInput, institution: e.target.value })} />
+            </div>
+            <input placeholder="Duration" value={eduInput.duration} onChange={(e) => setEduInput({ ...eduInput, duration: e.target.value })} />
+            <input placeholder="Details (optional)" value={eduInput.details} onChange={(e) => setEduInput({ ...eduInput, details: e.target.value })} />
+            <button className="rb-btn-secondary" type="button" onClick={addEducation}>+ Add Education</button>
+
+            {formData.education.map((edu, i) => (
+              <div key={i} className="rb-list-item">
+                <div>
+                  <strong>{edu.degree}</strong>{edu.institution ? ` — ${edu.institution}` : ""}
+                  <div className="rb-sub-text">{edu.duration}</div>
+                </div>
+                <button type="button" onClick={() => removeFromList("education", i)}>&times;</button>
+              </div>
+            ))}
+          </section>
+
+          <section className="rb-section">
+            <h3>Projects</h3>
+            <input placeholder="Project Name" value={projInput.name} onChange={(e) => setProjInput({ ...projInput, name: e.target.value })} />
+            <div className="rb-section-header-row">
+              <span className="rb-mini-label">Description</span>
+              <button
+                className="ai-generate-btn small"
+                type="button"
+                disabled={aiLoadingField === "project"}
+                onClick={() => handleAiGenerate("project", { name: projInput.name, skills: formData.skills.join(", ") })}
+              >
+                {aiLoadingField === "project" ? "Generating..." : "✦ AI Generate"}
+              </button>
+            </div>
+            <textarea rows="3" placeholder="What did you build..." value={projInput.description} onChange={(e) => setProjInput({ ...projInput, description: e.target.value })} />
+            <button className="rb-btn-secondary" type="button" onClick={addProject}>+ Add Project</button>
+
+            {formData.projects.map((p, i) => (
+              <div key={i} className="rb-list-item">
+                <div><strong>{p.name}</strong></div>
+                <button type="button" onClick={() => removeFromList("projects", i)}>&times;</button>
+              </div>
+            ))}
+          </section>
+
+          <section className="rb-section">
+            <h3>Certificates</h3>
+            <div className="rb-add-row">
+              <input placeholder="Certificate name" value={certInput.name} onChange={(e) => setCertInput({ name: e.target.value })} onKeyDown={(e) => e.key === "Enter" && addCertificate()} />
+              <button className="rb-btn-icon" type="button" onClick={addCertificate}>+</button>
+            </div>
+            {formData.certificates.map((c, i) => (
+              <div key={i} className="rb-list-item">
+                <div>{c.name}</div>
+                <button type="button" onClick={() => removeFromList("certificates", i)}>&times;</button>
+              </div>
+            ))}
+          </section>
+        </div>
+
+        {/* --- LIVE PREVIEW PANE --- */}
+        <div className="rb-preview-pane">
+          <div className="rb-preview-scale">
+            <ActiveTemplate data={formData} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
